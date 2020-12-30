@@ -37,6 +37,7 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+    extractCSS: true,
     html: {
       minify: {
         collapseBooleanAttributes: true,
@@ -53,7 +54,7 @@ export default {
         removeScriptTypeAttributes: true,
         removeStyleLinkTypeAttributes: true,
       }
-    }
+    },
   },
 
   // Custom Tailwind entry file
