@@ -1,20 +1,18 @@
-# bymattlee-vue-nuxt-starter
+# ByMattLee Vue Nuxt Starter
 
 ## Build Setup
 
 ```bash
-# install dependencies
-$ yarn install
+# Install dependencies
+$ yarn
 
-# serve with hot reload at localhost:3000
+# Serve with hot reload at localhost:3000
 $ yarn dev
 
-# build for production and launch server
+# Build for production and launch server
 $ yarn build
 $ yarn start
 
-# generate static project
+# Generate static project
 $ yarn generate
 ```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).

@@ -1,0 +1,39 @@
+/* ***** ----------------------------------------------- ***** **
+** ***** Setup/Base
+** ***** ----------------------------------------------- ***** */
+
+:root {
+  @apply bg-black;
+  font-size: 62.5%;
+}
+
+*::selection {
+  @apply bg-grey-light-aa text-white;
+}
+
+html {
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  @apply font-body leading-normal text-14 text-white;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -ms-text-size-adjust: 100%;
+  @include mq('sm') {
+    @apply text-16;
+  }
+}
+
+html,
+body,
+#__nuxt,
+#__layout,
+#__layout > div {
+  min-height: 100vh;
+}
+
+#__layout > div {
+  display: flex;
+  flex-direction: column;
+}

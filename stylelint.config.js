@@ -1,6 +1,45 @@
 module.exports = {
-  extends: ['stylelint-config-standard', 'stylelint-config-prettier'],
-  // add your custom config here
-  // https://stylelint.io/user-guide/configuration
-  rules: {},
+  extends: [
+    'stylelint-config-standard',
+    'stylelint-config-prettier'
+  ],
+  plugins: [
+    'stylelint-order'
+  ],
+  rules: {
+    'indentation': 2,
+    'max-empty-lines': 2,
+    'block-no-empty': null,
+    'selector-type-no-unknown': null,
+    'selector-pseudo-element-no-unknown': null,
+    'rule-empty-line-before': [
+      'always-multi-line', {
+        'except': ['first-nested'],
+        'ignore': ['after-comment', 'inside-block']
+      }
+    ],
+    'block-closing-brace-empty-line-before': null,
+    'block-closing-brace-newline-after': [
+      'always', {
+        ignoreAtRules: ['if', 'else']
+      }
+    ],
+    'at-rule-empty-line-before': null,
+    'font-family-name-quotes': 'always-where-recommended',
+    'function-url-quotes': 'always',
+    'selector-attribute-quotes': 'always',
+    'string-quotes': 'single',
+    'color-named': [
+      'never', {
+        ignore: ['inside-function']
+      }
+    ],
+    'font-weight-notation': 'numeric',
+    'order/properties-alphabetical-order': true,
+    'declaration-empty-line-before': 'never',
+    'at-rule-no-unknown': null,
+    'no-descending-specificity': null,
+    'function-comma-newline-after': null,
+    'value-keyword-case': null,
+  }
 }

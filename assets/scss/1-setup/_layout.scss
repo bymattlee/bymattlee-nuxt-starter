@@ -1,0 +1,68 @@
+/* ***** ----------------------------------------------- ***** **
+** ***** Setup/Layout
+** ***** ----------------------------------------------- ***** */
+
+/* ***** Settings
+** ***** ----------------------------------------------- ***** */
+
+// Should be identical to the settings in tailwind.config.js
+$breakpoints: (
+  xs: 480px,
+  sm: 768px,
+  md: 1024px,
+  lg: 1280px,
+  xl: 1440px,
+  xxl: 1800px,
+);
+
+
+/* ***** Functions
+** ***** ----------------------------------------------- ***** */
+
+// Convert from px to base 16 em
+@function px-to-em($px) {
+  @return ($px / 16px) * 1em;
+}
+
+
+/* ***** Mixins
+** ***** ----------------------------------------------- ***** */
+
+// Media query
+@mixin mq($size, $type: min, $orientation: width) {
+  @if map-has-key($breakpoints, $size) {
+    $size: map-get($breakpoints, $size);
+  }
+  @if $type == 'max' {
+    $size: $size - 1px;
+  }
+  @if $orientation == 'width' {
+    @media only screen and (#{$type}-width: px-to-em($size)) {
+      @content;
+    }
+  }
+  @if $orientation == 'height' {
+    @media only screen and (#{$type}-height: px-to-em($size)) {
+      @content;
+    }
+  }
+}
+
+
+/* ***** Classes
+** ***** ----------------------------------------------- ***** */
+
+.container {
+  margin: 0 auto;
+  max-width: 128rem;
+  padding: 0 3rem;
+  position: relative;
+  width: 100%;
+  @include mq('sm') {
+    padding: 0 5rem;
+  }
+
+  &--small {
+    max-width: 78rem;
+  }
+}
