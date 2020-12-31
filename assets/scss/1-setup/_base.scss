@@ -3,12 +3,12 @@
 ** ***** ----------------------------------------------- ***** */
 
 :root {
-  @apply bg-black;
+  @apply bg-grey-dark-2;
   font-size: 62.5%;
 }
 
 *::selection {
-  @apply bg-grey-light-aa text-white;
+  @apply bg-grey-light-a text-white;
 }
 
 html {
@@ -16,7 +16,7 @@ html {
 }
 
 body {
-  @apply font-body leading-normal text-14 text-white;
+  @apply font-body leading-normal text-14 text-grey-light-a;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   -ms-text-size-adjust: 100%;
@@ -36,4 +36,51 @@ body,
 #__layout > div {
   display: flex;
   flex-direction: column;
+}
+
+a {
+  @apply text-grey-light-c;
+  text-decoration: none;
+  transition: color $duration-slow;
+
+  &:hover {
+    @media (hover: hover) {
+      @apply text-grey-dark-6;
+    }
+  }
+
+  &:active {
+    @media (hover: hover) {
+      @apply text-grey-light-c;
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-heading font-bold;
+}
+
+svg {
+  fill: currentColor;
+}
+
+button {
+  @apply font-heading font-bold;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  outline: 0;
+  padding: 0;
+  transition: color $duration-slow, background-color $duration-slow;
+  &:focus {
+    outline: 0;
+  }
 }

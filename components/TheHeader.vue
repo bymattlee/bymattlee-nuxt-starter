@@ -1,17 +1,16 @@
 <template>
-  <header class="bg-black py-15">
-    <div class="container">
+  <header class="bg-black py-20" role="banner">
+    <div class="container flex items-center justify-between">
       <h1>
-        <NuxtLink to="/">ByMattLee Vue Nuxt Starter</NuxtLink>
+        <NuxtLink to="/" class="xs:flex xs:items-center">
+          <IconByMattLee class="w-40" />
+          <span class="hidden uppercase md:block md:text-22 md:ml-10">
+            ByMattLee Vue Nuxt Starter
+          </span>
+        </NuxtLink>
       </h1>
+      <MenuButton />
+      <TheHeaderNav />
     </div>
   </header>
 </template>
-
-<script>
-export default {
-  mounted() {
-    console.log('header')
-  },
-}
-</script>
