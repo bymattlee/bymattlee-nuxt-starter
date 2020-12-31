@@ -1,0 +1,20 @@
+/* ***** ----------------------------------------------- ***** **
+** ***** Setup/Transitions
+** ***** ----------------------------------------------- ***** */
+
+/* ***** Duration
+** ***** ----------------------------------------------- ***** */
+
+// Should be identical to the settings in tailwind.config.js
+$duration-fast: 150ms;
+$duration-normal: 300ms;
+$duration-slow: 500ms;
+
+
+/* ***** Ease
+** ***** ----------------------------------------------- ***** */
+
+// Should be identical to the settings in tailwind.config.js
+$ease-in: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+$ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+$ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);

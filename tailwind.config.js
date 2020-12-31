@@ -102,6 +102,11 @@ module.exports = {
       'header': '500',
       'menu-overlay': '400',
     },
+    transitionDuration: {
+      fast: '150ms',
+      normal: '300ms',
+      slow: '500ms',
+    },
     transitionTimingFunction: {
      'linear': 'linear',
      'in': 'cubic-bezier(0.55, 0.055, 0.675, 0.19)',

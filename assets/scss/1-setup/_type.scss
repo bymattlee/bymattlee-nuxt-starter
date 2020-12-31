@@ -23,25 +23,25 @@
   &::-webkit-input-placeholder {
     color: $color;
     opacity: 1;
-    transition: opacity 500ms;
+    transition: opacity $duration-slow;
   }
 
   &::-moz-placeholder {
     color: $color;
     opacity: 1;
-    transition: opacity 500ms;
+    transition: opacity $duration-slow;
   }
 
   &:-ms-input-placeholder {
     color: $color;
     opacity: 1;
-    transition: opacity 500ms;
+    transition: opacity $duration-slow;
   }
 
   &:-moz-placeholder {
     color: $color;
     opacity: 1;
-    transition: opacity 500ms;
+    transition: opacity $duration-slow;
   }
 
   &:focus {
