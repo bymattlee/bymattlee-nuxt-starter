@@ -2,7 +2,7 @@
   <div class="container container--small">
     <h1 v-if="error.statusCode === 404">Page not found</h1>
     <h1 v-else>An error occurred</h1>
-    <p>Sorry, but the page you were trying to view does not exist.</p>
+    <p>{{ error.message }}</p>
     <p><NuxtLink to="/">» Go Back Home</NuxtLink></p>
   </div>
 </template>
@@ -12,10 +12,13 @@ export default {
   props: {
     error: {
       type: Object,
-      default() {
-        return {}
-      },
+      default: null,
     },
+  },
+  head() {
+    return {
+      title: this.error.message,
+    }
   },
 }
 </script>
