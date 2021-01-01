@@ -10,7 +10,7 @@
         </NuxtLink>
       </h1>
       <TheHeaderMenuButton />
-      <TheHeaderNav />
+      <TheHeaderMenu />
     </div>
   </header>
 </template>

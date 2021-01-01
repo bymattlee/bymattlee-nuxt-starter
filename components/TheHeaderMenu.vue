@@ -2,7 +2,7 @@
   <nav class="header__nav hidden sm:block">
     <ul>
       <li
-        v-for="(menuItem, index) in headerNav.menu"
+        v-for="(menuItem, index) in menu"
         :key="menuItem.name"
         :class="['inline-block', { 'ml-20 md:ml-40': index >= 1 }]"
       >
@@ -18,25 +18,10 @@
 </template>
 
 <script>
-import { groq } from '@nuxtjs/sanity'
-
-const query = groq`
-  *[_type == "sectionsHeader" && !(_id in path('drafts.**'))]{
-    'menu': headerMenu->menuItems[]{
-      'name': menuItemName,
-      'url': menuItemUrl,
-      openInNewTab
-    }
-  }[0]
-`
-
 export default {
-  async fetch() {
-    this.headerNav = await this.$sanity.fetch(query)
-  },
   data() {
     return {
-      headerNav: [],
+      menu: this.$store.state.header.menu,
     }
   },
 }
