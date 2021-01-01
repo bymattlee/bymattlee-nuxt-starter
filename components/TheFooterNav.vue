@@ -2,15 +2,15 @@
   <nav class="footer__nav mt-40">
     <ul>
       <li
-        v-for="footerNavItem in footerNavItems"
-        :key="footerNavItem.name"
+        v-for="menuItem in footerNav.menu"
+        :key="menuItem.name"
         class="inline-block mx-10 md:mx-20"
       >
         <NuxtLink
-          :to="footerNavItem.url"
+          :to="menuItem.url"
           class="inline-block font-heading uppercase text-14"
         >
-          {{ footerNavItem.name }}
+          {{ menuItem.name }}
         </NuxtLink>
       </li>
     </ul>
@@ -18,31 +18,26 @@
 </template>
 
 <script>
+import { groq } from '@nuxtjs/sanity'
+
+const query = groq`
+  *[_type == "sectionsFooter" && !(_id in path('drafts.**'))]{
+    'menu': footerMenu->menuItems[]{
+      'name': menuItemName,
+      'url': menuItemUrl,
+      openInNewTab
+    }
+  }[0]
+`
+
 export default {
-  props: {
-    footerNavItems: {
-      type: Array,
-      default() {
-        return [
-          {
-            name: 'Home',
-            url: '/',
-          },
-          {
-            name: 'Articles',
-            url: '/articles',
-          },
-          {
-            name: 'About',
-            url: '/about',
-          },
-          {
-            name: '404',
-            url: '/404',
-          },
-        ]
-      },
-    },
+  async fetch() {
+    this.footerNav = await this.$sanity.fetch(query)
+  },
+  data() {
+    return {
+      footerNav: [],
+    }
   },
 }
 </script>

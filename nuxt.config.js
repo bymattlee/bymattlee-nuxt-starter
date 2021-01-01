@@ -27,6 +27,7 @@ export default {
     '@nuxtjs/stylelint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/sanity',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -60,5 +61,11 @@ export default {
   // Custom Tailwind entry file
   tailwindcss: {
     cssPath: '~/assets/scss/main.scss',
-  }
+  },
+
+  // Sanity configuration for data
+  sanity: {
+    projectId: 'afxi85wm',
+    dataset: 'production',
+  },
 }

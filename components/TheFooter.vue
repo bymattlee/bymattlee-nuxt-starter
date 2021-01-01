@@ -5,10 +5,11 @@
         <IconByMattLee class="w-40" />
       </NuxtLink>
       <TheFooterNav />
+      <TheFooterSocialIcons />
+      <p class="mt-40 uppercase text-12">
+        &copy; {{ currentYear }} ByMattLee. All Rights Reserved.
+      </p>
     </div>
-    <p class="mt-40 uppercase text-12">
-      &copy; {{ currentYear }} ByMattLee. All Rights Reserved.
-    </p>
   </footer>
 </template>
 

@@ -2,15 +2,15 @@
   <nav class="header__nav hidden sm:block">
     <ul>
       <li
-        v-for="(headerNavItem, index) in headerNavItems"
-        :key="headerNavItem.name"
+        v-for="(menuItem, index) in headerNav.menu"
+        :key="menuItem.name"
         :class="['inline-block', { 'ml-20 md:ml-40': index >= 1 }]"
       >
         <NuxtLink
-          :to="headerNavItem.url"
+          :to="menuItem.url"
           class="inline-block font-heading uppercase text-14"
         >
-          {{ headerNavItem.name }}
+          {{ menuItem.name }}
         </NuxtLink>
       </li>
     </ul>
@@ -18,31 +18,26 @@
 </template>
 
 <script>
+import { groq } from '@nuxtjs/sanity'
+
+const query = groq`
+  *[_type == "sectionsHeader" && !(_id in path('drafts.**'))]{
+    'menu': headerMenu->menuItems[]{
+      'name': menuItemName,
+      'url': menuItemUrl,
+      openInNewTab
+    }
+  }[0]
+`
+
 export default {
-  props: {
-    headerNavItems: {
-      type: Array,
-      default() {
-        return [
-          {
-            name: 'Home',
-            url: '/',
-          },
-          {
-            name: 'Articles',
-            url: '/articles',
-          },
-          {
-            name: 'About',
-            url: '/about',
-          },
-          {
-            name: '404',
-            url: '/404',
-          },
-        ]
-      },
-    },
+  async fetch() {
+    this.headerNav = await this.$sanity.fetch(query)
+  },
+  data() {
+    return {
+      headerNav: [],
+    }
   },
 }
 </script>
