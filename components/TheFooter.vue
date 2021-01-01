@@ -4,7 +4,7 @@
       <NuxtLink to="/">
         <IconByMattLee class="w-40" />
       </NuxtLink>
-      <TheFooterNav />
+      <TheFooterMenu />
       <TheFooterSocialIcons />
       <p class="mt-40 uppercase text-12">
         &copy; {{ currentYear }} ByMattLee. All Rights Reserved.

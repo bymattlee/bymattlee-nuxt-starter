@@ -1,8 +1,8 @@
 import { groq } from '@nuxtjs/sanity'
 
 export const menuQuery = groq`
-  *[_type == "sectionsHeader" && !(_id in path('drafts.**'))]{
-    'menu': headerMenu->menuItems[]{
+  *[_type == "sectionsFooter" && !(_id in path('drafts.**'))]{
+    'menu': footerMenu->menuItems[]{
       'name': menuItemName,
       'url': menuItemUrl,
       openInNewTab
