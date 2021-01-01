@@ -14,12 +14,10 @@
 </template>
 
 <script>
-const currentDateObj = new Date()
-
 export default {
   data() {
     return {
-      currentYear: currentDateObj.getFullYear(),
+      currentYear: new Date().getFullYear(),
     }
   },
 }
