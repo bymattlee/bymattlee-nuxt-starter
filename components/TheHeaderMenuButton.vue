@@ -10,15 +10,14 @@
 
 <script>
 export default {
-  data() {
-    return {
-      isOpen: this.$store.state.menuOverlay.isOpen,
-    }
+  computed: {
+    isOpen() {
+      return this.$store.state.menuOverlay.isOpen
+    },
   },
   methods: {
     toggleMenuOverlay() {
       this.$store.commit('menuOverlay/toggle')
-      this.isOpen = this.$store.state.menuOverlay.isOpen
     },
   },
 }
