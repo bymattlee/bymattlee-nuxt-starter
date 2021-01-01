@@ -2,8 +2,8 @@
   <nav class="mt-40">
     <ul>
       <li
-        v-for="socialSite in social.socialSites"
-        :key="socialSite"
+        v-for="(socialSite, index) in social.socialSites"
+        :key="index"
         class="inline-block mx-5 md:mx-10"
       >
         <a
