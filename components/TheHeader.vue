@@ -9,7 +9,7 @@
           </span>
         </NuxtLink>
       </h1>
-      <MenuButton />
+      <TheHeaderMenuButton />
       <TheHeaderNav />
     </div>
   </header>
