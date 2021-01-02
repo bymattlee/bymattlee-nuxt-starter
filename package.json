@@ -12,9 +12,9 @@
     "lint": "yarn lint:js && yarn lint:style"
   },
   "dependencies": {
-    "@nuxtjs/pwa": "^3.0.2",
     "@nuxtjs/sanity": "^0.4.2",
     "@sanity/client": "^2.1.0",
+    "@sanity/image-url": "^0.140.19",
     "core-js": "^3.6.5",
     "nuxt": "^2.14.6"
   },

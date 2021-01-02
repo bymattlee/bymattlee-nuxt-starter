@@ -11,11 +11,11 @@ export const headerQuery = groq`
 `
 
 export const state = () => ({
-  menu: null,
+  menu: [],
 })
 
 export const mutations = {
   setData(state, menu) {
-    state.menu = menu ? menu.menu : null
+    state.menu = menu ? menu.menu : []
   },
 }

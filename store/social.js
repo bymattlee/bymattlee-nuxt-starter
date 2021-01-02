@@ -13,13 +13,13 @@ export const socialQuery = groq`
 `
 
 export const state = () => ({
-  socialSites: null,
-  twitterHandle: null,
+  socialSites: [],
+  twitterHandle: '',
 })
 
 export const mutations = {
   setData(state, data) {
-    state.socialSites = data ? data.socialSites : null
-    state.twitterHandle = data ? data.twitterHandle : null
+    state.socialSites = data ? data.socialSites : []
+    state.twitterHandle = data ? data.twitterHandle : ''
   },
 }
