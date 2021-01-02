@@ -2,7 +2,7 @@
   <nav class="mt-40">
     <ul>
       <li
-        v-for="(socialSite, index) in social.socialSites"
+        v-for="(socialSite, index) in socialSites"
         :key="index"
         class="inline-block mx-5 md:mx-10"
       >
@@ -52,27 +52,10 @@
 </template>
 
 <script>
-import { groq } from '@nuxtjs/sanity'
-
-const query = groq`
-  *[_type == "settingsSocial" && !(_id in path('drafts.**'))]{
-    socialSites[] {
-      facebookUrl,
-      twitterUrl,
-      instagramUrl,
-      youtubeUrl
-    },
-    twitterHandle
-  }[0]
-`
-
 export default {
-  async fetch() {
-    this.social = await this.$sanity.fetch(query)
-  },
   data() {
     return {
-      social: [],
+      socialSites: this.$store.state.social.socialSites,
     }
   },
 }

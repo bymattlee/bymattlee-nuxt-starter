@@ -1,6 +1,6 @@
 import { groq } from '@nuxtjs/sanity'
 
-export const menuQuery = groq`
+export const footerQuery = groq`
   *[_type == "sectionsFooter" && !(_id in path('drafts.**'))]{
     'menu': footerMenu->menuItems[]{
       'name': menuItemName,
@@ -15,7 +15,7 @@ export const state = () => ({
 })
 
 export const mutations = {
-  setMenu(state, menu) {
-    state.menu = menu ? menu.menu : []
+  setData(state, menu) {
+    state.menu = menu ? menu.menu : null
   },
 }
