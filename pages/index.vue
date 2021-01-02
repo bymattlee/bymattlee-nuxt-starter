@@ -32,7 +32,7 @@ export default {
     }
   },
   head() {
-    return dynamicHeadTags(
+    const dynamicTags = dynamicHeadTags(
       this.meta.pageTitle,
       this.meta.siteName,
       this.meta.siteDescription,
@@ -43,6 +43,10 @@ export default {
       this.meta.twitterHandle,
       this.meta.currentUrl
     )
+
+    return {
+      ...dynamicTags,
+    }
   },
 }
 </script>
