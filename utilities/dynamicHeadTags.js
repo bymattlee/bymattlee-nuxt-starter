@@ -46,7 +46,7 @@ const dynamicHeadTags = (passedOptions) => {
       {
         hid: 'og:title',
         name: 'og:title',
-        content: options.siteName,
+        content: options.pageTitle || options.siteName,
       },
       {
         hid: 'og:site_name',
@@ -86,7 +86,7 @@ const dynamicHeadTags = (passedOptions) => {
       {
         hid: 'twitter:title',
         name: 'twitter:title',
-        content: options.fullTitle,
+        content: options.pageTitle || options.siteName,
       },
       {
         hid: 'twitter:url',
