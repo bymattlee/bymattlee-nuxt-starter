@@ -8,7 +8,7 @@
     </main>
     <TheFooter />
     <transition name="component-fade">
-      <MenuOverlay v-if="isOpen" />
+      <MenuOverlay v-if="menuOverlayIsOpen" />
     </transition>
   </div>
 </template>
@@ -16,9 +16,19 @@
 <script>
 export default {
   computed: {
-    isOpen() {
+    menuOverlayIsOpen() {
       return this.$store.state.menuOverlay.isOpen
     },
+  },
+  head() {
+    return {
+      htmlAttrs: {
+        lang: 'en-US',
+      },
+      bodyAttrs: {
+        class: [this.menuOverlayIsOpen ? 'overflow-hidden' : ''],
+      },
+    }
   },
 }
 </script>

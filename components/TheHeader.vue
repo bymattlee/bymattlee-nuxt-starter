@@ -27,13 +27,13 @@ export default {
     }
   },
   computed: {
-    isOpen() {
+    menuOverlayIsOpen() {
       return this.$store.state.menuOverlay.isOpen
     },
   },
   methods: {
     closeMenuOverlay() {
-      if (this.isOpen) this.$store.commit('menuOverlay/close')
+      if (this.menuOverlayIsOpen) this.$store.commit('menuOverlay/close')
     },
   },
 }
