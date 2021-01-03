@@ -51,13 +51,29 @@ export default {
     return { page }
   },
   head() {
+    // Check if page meta data is specified in CMS, will overwrite all settings
+    const pageMetaDataTitle =
+      this.page.pageMetaData && this.page.pageMetaData.pageTitle
+        ? this.page.pageMetaData.pageTitle
+        : ''
+    const pageMetaDataDescription =
+      this.page.pageMetaData && this.page.pageMetaData.pageDescription
+        ? this.page.pageMetaData.pageDescription
+        : ''
+    const pageMetaDataShareImage =
+      this.page.pageMetaData && this.page.pageMetaData.pageShareImage
+        ? this.page.pageMetaData.pageShareImage
+        : ''
+
     const dynamicTags = dynamicHeadTags({
       pageTitle: this.page.title,
+      metaTitle: pageMetaDataTitle,
       siteName: this.$store.state.seo.siteName,
-      siteDescription: this.$store.state.seo.siteDescription,
-      siteShareImage: this.$urlFor(this.$store.state.seo.siteShareImage)
-        .width(1200)
-        .url(),
+      siteDescription:
+        pageMetaDataDescription || this.$store.state.seo.siteDescription,
+      siteShareImage:
+        this.$urlFor(pageMetaDataShareImage).width(1200).url() ||
+        this.$urlFor(this.$store.state.seo.siteShareImage).width(1200).url(),
       favicon32: this.$urlFor(this.$store.state.favicons.favicon)
         .width(32)
         .url(),

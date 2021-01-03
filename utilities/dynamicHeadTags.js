@@ -1,6 +1,7 @@
 const dynamicHeadTags = (passedOptions) => {
   const defaultOptions = {
     pageTitle: '',
+    metaTitle: '',
     siteName: '',
     siteDescription: '',
     siteShareImage: '',
@@ -21,7 +22,7 @@ const dynamicHeadTags = (passedOptions) => {
     : options.siteName
 
   return {
-    title: fullTitle,
+    title: options.metaTitle || fullTitle,
     meta: [
       {
         hid: 'description',
@@ -46,7 +47,7 @@ const dynamicHeadTags = (passedOptions) => {
       {
         hid: 'og:title',
         name: 'og:title',
-        content: options.pageTitle || options.siteName,
+        content: options.metaTitle || options.pageTitle || options.siteName,
       },
       {
         hid: 'og:site_name',
@@ -86,7 +87,7 @@ const dynamicHeadTags = (passedOptions) => {
       {
         hid: 'twitter:title',
         name: 'twitter:title',
-        content: options.pageTitle || options.siteName,
+        content: options.metaTitle || options.pageTitle || options.siteName,
       },
       {
         hid: 'twitter:url',
