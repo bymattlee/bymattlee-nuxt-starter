@@ -1,9 +1,8 @@
 <template>
   <div class="container container--small">
-    <h1 v-if="error.statusCode === 404">Page not found</h1>
-    <h1 v-else>An error occurred</h1>
-    <p>{{ error.message }}</p>
-    <p><NuxtLink to="/">» Go Back Home</NuxtLink></p>
+    <h1 class="text-30 sm:text-36">Page not found</h1>
+    <p class="mt-20 sm:mt-25">{{ error.message }}</p>
+    <p class="mt-20 sm:mt-25"><NuxtLink to="/">» Go Back Home</NuxtLink></p>
   </div>
 </template>
 

@@ -18,3 +18,21 @@ $duration-slow: 500ms;
 $ease-in: cubic-bezier(0.55, 0.055, 0.675, 0.19);
 $ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
 $ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+
+/* ***** Classes
+** ***** ----------------------------------------------- ***** */
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity $duration-normal;
+}
+
+.fade-enter-active {
+  transition-delay: $duration-normal;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}

@@ -1,6 +1,6 @@
 <template>
   <div class="container container--small">
-    <h1>Articles</h1>
+    <h1 class="text-30 sm:text-36">Articles</h1>
   </div>
 </template>
 

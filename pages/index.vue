@@ -1,6 +1,6 @@
 <template>
   <div class="container container--small">
-    <h1>{{ page.title }}</h1>
+    <h1 class="text-30 sm:text-36">{{ page.title }}</h1>
   </div>
 </template>
 
