@@ -59,7 +59,7 @@ export default {
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: [],
+  modules: ['@nuxtjs/redirect-module'],
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
@@ -93,4 +93,26 @@ export default {
     projectId: 'afxi85wm',
     dataset: 'production',
   },
+
+  router: {
+    extendRoutes(routes, resolve) {
+      // Catch all 404 page
+      routes.push({
+        name: 'custom',
+        path: '*',
+        component: resolve(__dirname, 'pages/404.vue')
+      })
+    },
+  },
+
+  redirect: [
+    {
+      from: '^/index/',
+      to: '/'
+    },
+    {
+      from: '^/index',
+      to: '/'
+    },
+  ],
 }

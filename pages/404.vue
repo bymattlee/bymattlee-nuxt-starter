@@ -1,6 +1,8 @@
 <template>
   <div class="container container--small">
-    <h1>Articles</h1>
+    <h1>Page not found</h1>
+    <p>Sorry, but the page you were trying to view does not exist.</p>
+    <p><NuxtLink to="/">» Go Back Home</NuxtLink></p>
   </div>
 </template>
 
@@ -10,7 +12,7 @@ import { dynamicHeadTags } from '../utilities/dynamicHeadTags.js'
 export default {
   head() {
     const dynamicTags = dynamicHeadTags(
-      'Articles',
+      'Page not found',
       this.$store.state.seo.siteName,
       this.$store.state.seo.siteDescription,
       this.$urlFor(this.$store.state.seo.siteShareImage).width(1200).url(),

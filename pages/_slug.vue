@@ -1,16 +1,47 @@
 <template>
   <div class="container container--small">
-    <h1>Articles</h1>
+    <h1>{{ page.title }}</h1>
   </div>
 </template>
 
 <script>
+import { groq } from '@nuxtjs/sanity'
 import { dynamicHeadTags } from '../utilities/dynamicHeadTags.js'
 
+export const query = groq`
+  *[_type == "page" && slug.current == $slug && !(_id in path('drafts.**'))] {
+    pageMetaData{
+      pageDescription,
+      pageShareImage,
+      pageTitle
+    },
+    pageSections[]{
+      ...,
+      mainContent[]{
+        ...,
+        markDefs[]{
+          ...,
+          _type == "internalLink" => {
+            "slug": @.reference->slug.current,
+            "dataType": @.reference->_type
+          }
+        }
+      }
+    },
+    'slug': slug.current,
+    title,
+    'updatedAt': _updatedAt
+  }[0]
+`
+
 export default {
+  async asyncData({ $sanity, params }) {
+    const page = await $sanity.fetch(query, params)
+    return { page }
+  },
   head() {
     const dynamicTags = dynamicHeadTags(
-      'Articles',
+      this.page.title,
       this.$store.state.seo.siteName,
       this.$store.state.seo.siteDescription,
       this.$urlFor(this.$store.state.seo.siteShareImage).width(1200).url(),

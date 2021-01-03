@@ -1,47 +1,55 @@
 <template>
   <div class="container container--small">
-    <h1>Home</h1>
+    <h1>{{ page.title }}</h1>
   </div>
 </template>
 
 <script>
+import { groq } from '@nuxtjs/sanity'
 import { dynamicHeadTags } from '../utilities/dynamicHeadTags.js'
 
+export const query = groq`
+  *[_type == "page" && slug.current == 'index' && !(_id in path('drafts.**'))] {
+    pageMetaData{
+      pageDescription,
+      pageShareImage,
+      pageTitle
+    },
+    pageSections[]{
+      ...,
+      mainContent[]{
+        ...,
+        markDefs[]{
+          ...,
+          _type == "internalLink" => {
+            "slug": @.reference->slug.current,
+            "dataType": @.reference->_type
+          }
+        }
+      }
+    },
+    'slug': slug.current,
+    title,
+    'updatedAt': _updatedAt
+  }[0]
+`
+
 export default {
-  data() {
-    return {
-      meta: {
-        pageTitle: null,
-        siteName: this.$store.state.seo.siteName,
-        siteDescription: this.$store.state.seo.siteDescription,
-        siteShareImage: this.$urlFor(this.$store.state.seo.siteShareImage)
-          .width(1200)
-          .url(),
-        favicon32: this.$urlFor(this.$store.state.favicons.favicon)
-          .width(32)
-          .url(),
-        favicon16: this.$urlFor(this.$store.state.favicons.favicon)
-          .width(16)
-          .url(),
-        appleTouchIcon: this.$urlFor(this.$store.state.favicons.appleTouchIcon)
-          .width(180)
-          .url(),
-        twitterHandle: this.$store.state.social.twitterHandle,
-        currentUrl: `${this.$store.state.hostname}${this.$route.fullPath}`,
-      },
-    }
+  async asyncData({ $sanity, params }) {
+    const page = await $sanity.fetch(query, params)
+    return { page }
   },
   head() {
     const dynamicTags = dynamicHeadTags(
-      this.meta.pageTitle,
-      this.meta.siteName,
-      this.meta.siteDescription,
-      this.meta.siteShareImage,
-      this.meta.favicon32,
-      this.meta.favicon16,
-      this.meta.appleTouchIcon,
-      this.meta.twitterHandle,
-      this.meta.currentUrl
+      null,
+      this.$store.state.seo.siteName,
+      this.$store.state.seo.siteDescription,
+      this.$urlFor(this.$store.state.seo.siteShareImage).width(1200).url(),
+      this.$urlFor(this.$store.state.favicons.favicon).width(32).url(),
+      this.$urlFor(this.$store.state.favicons.favicon).width(16).url(),
+      this.$urlFor(this.$store.state.favicons.appleTouchIcon).width(180).url(),
+      this.$store.state.social.twitterHandle,
+      `${this.$store.state.hostname}${this.$route.fullPath}`
     )
 
     return {

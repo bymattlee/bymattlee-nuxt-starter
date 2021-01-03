@@ -12,6 +12,7 @@
     "lint": "yarn lint:js && yarn lint:style"
   },
   "dependencies": {
+    "@nuxtjs/redirect-module": "^0.3.1",
     "@nuxtjs/sanity": "^0.4.2",
     "@sanity/client": "^2.1.0",
     "@sanity/image-url": "^0.140.19",
