@@ -1,15 +1,24 @@
-const dynamicHeadTags = (
-  pageTitle = '',
-  siteName = '',
-  siteDescription = '',
-  siteShareImage = '',
-  favicon32 = '',
-  favicon16 = '',
-  appleTouchIcon = '',
-  twitterHandle = '',
-  currentUrl = ''
-) => {
-  const fullTitle = pageTitle ? `${pageTitle} | ${siteName}` : siteName
+const dynamicHeadTags = (passedOptions) => {
+  const defaultOptions = {
+    pageTitle: '',
+    siteName: '',
+    siteDescription: '',
+    siteShareImage: '',
+    favicon32: '',
+    favicon16: '',
+    appleTouchIcon: '',
+    twitterHandle: '',
+    currentUrl: '',
+  }
+
+  const options = {
+    ...defaultOptions,
+    ...passedOptions,
+  }
+
+  const fullTitle = options.pageTitle
+    ? `${options.pageTitle} | ${options.siteName}`
+    : options.siteName
 
   return {
     title: fullTitle,
@@ -17,32 +26,32 @@ const dynamicHeadTags = (
       {
         hid: 'description',
         name: 'description',
-        content: siteDescription,
+        content: options.siteDescription,
       },
       {
         hid: 'msapplication-TileImage',
         name: 'msapplication-TileImage',
-        content: '',
+        content: options.appleTouchIcon,
       },
       {
         hid: 'application-name',
         name: 'application-name',
-        content: siteName,
+        content: options.siteName,
       },
       {
         hid: 'apple-mobile-web-app-title',
         name: 'apple-mobile-web-app-title',
-        content: siteName,
+        content: options.siteName,
       },
       {
         hid: 'og:title',
         name: 'og:title',
-        content: siteName,
+        content: options.siteName,
       },
       {
         hid: 'og:site_name',
         name: 'og:site_name',
-        content: siteName,
+        content: options.siteName,
       },
       {
         hid: 'og:type',
@@ -52,17 +61,17 @@ const dynamicHeadTags = (
       {
         hid: 'og:url',
         name: 'og:url',
-        content: currentUrl,
+        content: options.currentUrl,
       },
       {
         hid: 'og:image',
         name: 'og:image',
-        content: siteShareImage,
+        content: options.siteShareImage,
       },
       {
         hid: 'og:description',
         name: 'og:description',
-        content: siteDescription,
+        content: options.siteDescription,
       },
       {
         hid: 'og:locale',
@@ -77,32 +86,32 @@ const dynamicHeadTags = (
       {
         hid: 'twitter:title',
         name: 'twitter:title',
-        content: fullTitle,
+        content: options.fullTitle,
       },
       {
         hid: 'twitter:url',
         name: 'twitter:url',
-        content: currentUrl,
+        content: options.currentUrl,
       },
       {
         hid: 'twitter:description',
         name: 'twitter:description',
-        content: siteDescription,
+        content: options.siteDescription,
       },
       {
         hid: 'twitter:image',
         name: 'twitter:image',
-        content: siteShareImage,
+        content: options.siteShareImage,
       },
       {
         hid: 'twitter:site',
         name: 'twitter:site',
-        content: twitterHandle,
+        content: options.twitterHandle,
       },
       {
         hid: 'twitter:creator',
         name: 'twitter:creator',
-        content: twitterHandle,
+        content: options.twitterHandle,
       },
     ],
     link: [
@@ -110,19 +119,19 @@ const dynamicHeadTags = (
         rel: 'icon',
         type: 'image/png',
         sizes: '32x32',
-        href: favicon32,
+        href: options.favicon32,
       },
       {
         rel: 'icon',
         type: 'image/png',
         sizes: '16x16',
-        href: favicon16,
+        href: options.favicon16,
       },
       {
         rel: 'apple-touch-icon',
         type: 'image/png',
         sizes: '180x180',
-        href: appleTouchIcon,
+        href: options.appleTouchIcon,
       },
     ],
   }

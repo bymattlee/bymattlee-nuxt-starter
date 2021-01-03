@@ -48,17 +48,25 @@ export default {
     return { page }
   },
   head() {
-    const dynamicTags = dynamicHeadTags(
-      this.page.title,
-      this.$store.state.seo.siteName,
-      this.$store.state.seo.siteDescription,
-      this.$urlFor(this.$store.state.seo.siteShareImage).width(1200).url(),
-      this.$urlFor(this.$store.state.favicons.favicon).width(32).url(),
-      this.$urlFor(this.$store.state.favicons.favicon).width(16).url(),
-      this.$urlFor(this.$store.state.favicons.appleTouchIcon).width(180).url(),
-      this.$store.state.social.twitterHandle,
-      `${this.$store.state.hostname}${this.$route.fullPath}`
-    )
+    const dynamicTags = dynamicHeadTags({
+      pageTitle: this.page.title,
+      siteName: this.$store.state.seo.siteName,
+      siteDescription: this.$store.state.seo.siteDescription,
+      siteShareImage: this.$urlFor(this.$store.state.seo.siteShareImage)
+        .width(1200)
+        .url(),
+      favicon32: this.$urlFor(this.$store.state.favicons.favicon)
+        .width(32)
+        .url(),
+      favicon16: this.$urlFor(this.$store.state.favicons.favicon)
+        .width(16)
+        .url(),
+      appleTouchIcon: this.$urlFor(this.$store.state.favicons.appleTouchIcon)
+        .width(180)
+        .url(),
+      twitterHandle: this.$store.state.social.twitterHandle,
+      currentUrl: `${this.$store.state.hostname}${this.$route.fullPath}`,
+    })
 
     return {
       ...dynamicTags,
