@@ -23,16 +23,20 @@ $ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
 /* ***** Classes
 ** ***** ----------------------------------------------- ***** */
 
-.fade-enter-active,
-.fade-leave-active {
+.page-fade-enter-active,
+.page-fade-leave-active,
+.component-fade-enter-active,
+.component-fade-leave-active {
   transition: opacity $duration-normal;
 }
 
-.fade-enter-active {
-  transition-delay: $duration-normal / 2;
+.page-fade-enter-active {
+  transition-delay: $duration-normal;
 }
 
-.fade-enter,
-.fade-leave-to {
+.page-fade-enter,
+.page-fade-leave-to,
+.component-fade-enter,
+.component-fade-leave-to {
   opacity: 0;
 }
