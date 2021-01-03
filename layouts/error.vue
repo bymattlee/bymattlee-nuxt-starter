@@ -1,15 +1,22 @@
 <template>
   <div class="container container--small">
-    <h1>Page not found</h1>
-    <p>Sorry, but the page you were trying to view does not exist.</p>
+    <h1 v-if="error.statusCode === 404">Page not found</h1>
+    <h1 v-else>An error occurred</h1>
+    <p>{{ error.message }}</p>
     <p><NuxtLink to="/">» Go Back Home</NuxtLink></p>
   </div>
 </template>
 
 <script>
-import { dynamicHeadTags } from '../utilities/dynamicHeadTags.js'
+import dynamicHeadTags from '../utilities/dynamicHeadTags.js'
 
 export default {
+  props: {
+    error: {
+      type: Object,
+      default: null,
+    },
+  },
   head() {
     const dynamicTags = dynamicHeadTags(
       'Page not found',

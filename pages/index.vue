@@ -6,7 +6,8 @@
 
 <script>
 import { groq } from '@nuxtjs/sanity'
-import { dynamicHeadTags } from '../utilities/dynamicHeadTags.js'
+import throwError from '../utilities/throwError.js'
+import dynamicHeadTags from '../utilities/dynamicHeadTags.js'
 
 export const query = groq`
   *[_type == "page" && slug.current == 'index' && !(_id in path('drafts.**'))] {
@@ -35,8 +36,15 @@ export const query = groq`
 `
 
 export default {
-  async asyncData({ $sanity, params }) {
-    const page = await $sanity.fetch(query, params)
+  async asyncData({ $sanity, params, error }) {
+    const page = await $sanity.fetch(query, params).catch((e) => {
+      // Throw error if issue with query
+      throwError(error)
+    })
+
+    // Throw error if data is empty
+    if (page === null) throwError(error)
+
     return { page }
   },
   head() {

@@ -1,4 +1,4 @@
-export const dynamicHeadTags = (
+const dynamicHeadTags = (
   pageTitle = '',
   siteName = '',
   siteDescription = '',
@@ -127,3 +127,5 @@ export const dynamicHeadTags = (
     ],
   }
 }
+
+export default dynamicHeadTags

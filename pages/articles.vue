@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { dynamicHeadTags } from '../utilities/dynamicHeadTags.js'
+import dynamicHeadTags from '../utilities/dynamicHeadTags.js'
 
 export default {
   head() {

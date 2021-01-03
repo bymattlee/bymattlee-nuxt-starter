@@ -94,17 +94,6 @@ export default {
     dataset: 'production',
   },
 
-  router: {
-    extendRoutes(routes, resolve) {
-      // Catch all 404 page
-      routes.push({
-        name: 'custom',
-        path: '*',
-        component: resolve(__dirname, 'pages/404.vue')
-      })
-    },
-  },
-
   redirect: [
     {
       from: '^/index/',
