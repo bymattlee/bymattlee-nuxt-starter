@@ -93,15 +93,4 @@ export default {
     projectId: 'afxi85wm',
     dataset: 'production',
   },
-
-  redirect: [
-    {
-      from: '^/index/',
-      to: '/'
-    },
-    {
-      from: '^/index',
-      to: '/'
-    },
-  ],
 }

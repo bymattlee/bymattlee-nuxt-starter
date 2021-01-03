@@ -36,7 +36,10 @@ export const query = groq`
 `
 
 export default {
-  async asyncData({ $sanity, params, error }) {
+  async asyncData({ $sanity, params, error, redirect }) {
+    // If user lands on /index, redirect to /
+    if (params.slug === 'index') redirect('/')
+
     const page = await $sanity.fetch(query, params).catch((e) => {
       // Throw error if issue with query
       throwError(error)
