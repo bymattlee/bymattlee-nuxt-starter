@@ -1,8 +1,8 @@
 /* ***** ----------------------------------------------- ***** **
-** ***** Objects/Portable Text
+** ***** Objects/Rich Text
 ** ***** ----------------------------------------------- ***** */
 
-.portable-text {
+.rich-text {
   h1,
   h2,
   h3,
@@ -17,6 +17,34 @@
 
     &:last-child {
       margin-bottom: 0;
+    }
+  }
+
+  h1 {
+    @apply text-36;
+    @include mq('sm') {
+      @apply text-48;
+    }
+  }
+
+  h2 {
+    @apply text-30;
+    @include mq('sm') {
+      @apply text-36;
+    }
+  }
+
+  h3 {
+    @apply text-24;
+    @include mq('sm') {
+      @apply text-28;
+    }
+  }
+
+  h4 {
+    @apply text-18;
+    @include mq('sm') {
+      @apply text-24;
     }
   }
 
@@ -60,8 +88,11 @@
 
   ul,
   ol {
-    margin-bottom: 0;
-    margin-top: 0;
+    @apply leading-loose;
+    margin: 2rem 0 2rem 3rem;
+    @include mq('sm') {
+      margin: 2.5rem 0 2.5rem 3.5rem;
+    }
 
     li {
       margin: 0;
@@ -71,6 +102,14 @@
     ol {
       margin: 0.5rem 0 0.5rem 3.5rem;
     }
+  }
+
+  ul {
+    list-style-type: disc;
+  }
+
+  ol {
+    list-style-type: decimal;
   }
 
   .o-embed {

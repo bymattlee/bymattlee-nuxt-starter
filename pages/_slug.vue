@@ -1,6 +1,19 @@
 <template>
   <div class="container container--small">
-    <h1 class="text-30 sm:text-36">{{ page.title }}</h1>
+    <div
+      v-for="(pageSection, index) in page.pageSections"
+      :key="`${index}-${pageSection._type}`"
+      :class="{ 'mt-40 sm:mt-60': index >= 1 }"
+    >
+      <RichTextSection
+        v-if="pageSection._type === 'richTextSection'"
+        :page-section="pageSection"
+      />
+      <LatestArticlesSection
+        v-if="pageSection._type === 'latestArticlesSection'"
+        :page-section="pageSection"
+      />
+    </div>
   </div>
 </template>
 
