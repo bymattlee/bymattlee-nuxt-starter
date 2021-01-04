@@ -6,22 +6,14 @@ import { socialQuery } from './social.js'
 import { analyticsQuery } from './analytics.js'
 
 export const state = () => ({
-  hostname: '',
+  hostname:
+    process.env.NODE_ENV === 'production'
+      ? 'https://bymattlee-vue-nuxt-starter.netlify.app'
+      : 'http://localhost:3000',
 })
-
-export const mutations = {
-  setHostname(state, hostname) {
-    state.hostname = hostname
-  },
-}
 
 export const actions = {
   async nuxtServerInit({ commit }, { req, $sanity }) {
-    // Set hostname
-    const protocol =
-      process.env.NODE_ENV === 'production' ? 'http://' : 'http://'
-    commit('setHostname', `${protocol}${req.headers.host}`)
-
     // Set header data
     const headerData = await $sanity
       .fetch(headerQuery)
