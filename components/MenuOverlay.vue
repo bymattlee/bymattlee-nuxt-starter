@@ -12,7 +12,7 @@
           <NuxtLink
             :to="menuItem.url"
             class="inline-block font-heading uppercase text-16"
-            @click.native="closeMenuOverlay"
+            @click.native="close"
           >
             {{ menuItem.name }}
           </NuxtLink>
@@ -35,7 +35,7 @@ export default {
     },
   },
   methods: {
-    closeMenuOverlay() {
+    close() {
       this.$store.commit('menuOverlay/close')
     },
   },
