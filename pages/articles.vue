@@ -9,6 +9,7 @@ import dynamicHeadTags from '../utilities/dynamicHeadTags.js'
 
 export default {
   head() {
+    // Set dynamic head tags based on data from CMS
     const dynamicTags = dynamicHeadTags({
       pageTitle: 'Articles',
       siteName: this.$store.state.seo.siteName,

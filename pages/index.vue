@@ -62,6 +62,7 @@ export default {
         ? this.page.pageMetaData.pageShareImage
         : ''
 
+    // Set dynamic head tags based on data from CMS
     const dynamicTags = dynamicHeadTags({
       pageTitle: '',
       metaTitle: pageMetaDataTitle,
