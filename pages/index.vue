@@ -2,7 +2,7 @@
   <div class="container container--small">
     <section
       v-for="(pageSection, index) in page.pageSections"
-      :key="index"
+      :key="`${index}-${pageSection._type}`"
       :class="{ 'mt-40 sm:mt-60': index >= 1 }"
     >
       <div v-if="pageSection._type === 'richTextSection'">
