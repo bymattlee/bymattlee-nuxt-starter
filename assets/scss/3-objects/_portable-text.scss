@@ -1,0 +1,94 @@
+/* ***** ----------------------------------------------- ***** **
+** ***** Objects/Portable Text
+** ***** ----------------------------------------------- ***** */
+
+.portable-text {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 1rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  * + h1,
+  * + h2,
+  * + h3,
+  * + h4,
+  * + h5,
+  * + h6 {
+    margin-top: 3rem;
+    @include mq('sm') {
+      margin-top: 3.5rem;
+    }
+  }
+
+  a {
+    text-decoration: underline;
+
+    &:hover {
+      @media (hover: hover) {
+        text-decoration: none;
+      }
+    }
+  }
+
+  p {
+    @apply leading-loose;
+    margin: 2rem 0;
+    @include mq('sm') {
+      margin: 2.5rem 0;
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  ul,
+  ol {
+    margin-bottom: 0;
+    margin-top: 0;
+
+    li {
+      margin: 0;
+    }
+
+    ul,
+    ol {
+      margin: 0.5rem 0 0.5rem 3.5rem;
+    }
+  }
+
+  .o-embed {
+    margin: 3rem 0;
+    @include mq('sm') {
+      margin: 4rem 0;
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .o-button {
+    text-decoration: none;
+  }
+}

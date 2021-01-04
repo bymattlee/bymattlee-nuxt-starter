@@ -1,6 +1,28 @@
 <template>
   <div class="container container--small">
-    <h1 class="text-30 sm:text-36">{{ page.title }}</h1>
+    <section
+      v-for="(pageSection, index) in page.pageSections"
+      :key="index"
+      :class="{ 'mt-40 sm:mt-60': index >= 1 }"
+    >
+      <div v-if="pageSection._type === 'richTextSection'">
+        <h1
+          v-if="pageSection.heading"
+          class="text-30 text-grey-light-c sm:text-36"
+        >
+          {{ pageSection.heading }}
+        </h1>
+        <div
+          v-if="pageSection.mainContent"
+          class="portable-text mt-10 sm:mt-20"
+        >
+          <SanityContent :blocks="pageSection.mainContent" />
+        </div>
+      </div>
+      <div v-else-if="pageSection._type === 'latestArticlesSection'">
+        <h1 class="text-30 text-grey-light-c sm:text-36">Latest Articles</h1>
+      </div>
+    </section>
   </div>
 </template>
 
