@@ -19,7 +19,9 @@
         <p v-else>No articles have been written.</p>
       </div>
       <p class="mt-40">
-        <NuxtLink to="/articles">&raquo; View All Articles</NuxtLink>
+        <LinkButton type="internal" path="/articles">
+          &raquo; View All Articles
+        </LinkButton>
       </p>
     </div>
   </section>

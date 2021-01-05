@@ -1,5 +1,8 @@
 <template>
-  <NuxtLink :to="toPath" :class="{ 'rich-text__button': dataType }">
+  <LinkButton v-if="linkButton" type="internal" :path="toPath">
+    <slot />
+  </LinkButton>
+  <NuxtLink v-else :to="toPath">
     <slot />
   </NuxtLink>
 </template>

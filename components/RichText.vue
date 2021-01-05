@@ -5,9 +5,9 @@
 </template>
 
 <script>
-import ImageBlock from '~/components/ImageBlock'
-import InternalLink from '~/components/InternalLink'
-import ExternalLink from '~/components/ExternalLink'
+import ImageBlock from '~/components/RichText/ImageBlock'
+import LinkInternal from '~/components/RichText/LinkInternal'
+import LinkExternal from '~/components/RichText/LinkExternal'
 
 export default {
   props: {
@@ -23,8 +23,8 @@ export default {
           imageBlock: ImageBlock,
         },
         marks: {
-          internalLink: InternalLink,
-          link: ExternalLink,
+          internalLink: LinkInternal,
+          link: LinkExternal,
         },
       },
     }
@@ -160,26 +160,8 @@ export default {
     }
   }
 
-  .rich-text__button {
-    @apply bg-grey-light-c text-black;
-    display: inline-block;
-    padding: 0.75rem 2rem;
+  .link-button {
     text-decoration: none;
-    @include mq('sm') {
-      padding: 1rem 2.5rem;
-    }
-
-    &:hover {
-      @media (hover: hover) {
-        @apply bg-grey-dark-4 text-grey-light-c;
-      }
-    }
-
-    &:active {
-      @media (hover: hover) {
-        @apply bg-grey-light-a text-black;
-      }
-    }
   }
 }
 </style>
