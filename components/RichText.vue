@@ -1,6 +1,39 @@
-/* ***** ----------------------------------------------- ***** **
-** ***** Objects/Rich Text
-** ***** ----------------------------------------------- ***** */
+<template>
+  <div class="rich-text">
+    <SanityContent :blocks="content" :serializers="serializers" />
+  </div>
+</template>
+
+<script>
+import ImageBlock from '~/components/ImageBlock'
+import InternalLink from '~/components/InternalLink'
+import ExternalLink from '~/components/ExternalLink'
+
+export default {
+  props: {
+    content: {
+      type: Object,
+      default: null,
+    },
+  },
+  data() {
+    return {
+      serializers: {
+        types: {
+          imageBlock: ImageBlock,
+        },
+        marks: {
+          internalLink: InternalLink,
+          link: ExternalLink,
+        },
+      },
+    }
+  },
+}
+</script>
+
+<style lang="scss">
+@import '../assets/scss/1-setup/layout';
 
 .rich-text {
   h1,
@@ -127,7 +160,26 @@
     }
   }
 
-  .o-button {
+  .rich-text__button {
+    @apply bg-grey-light-c text-black;
+    display: inline-block;
+    padding: 0.75rem 2rem;
     text-decoration: none;
+    @include mq('sm') {
+      padding: 1rem 2.5rem;
+    }
+
+    &:hover {
+      @media (hover: hover) {
+        @apply bg-grey-dark-4 text-grey-light-c;
+      }
+    }
+
+    &:active {
+      @media (hover: hover) {
+        @apply bg-grey-light-a text-black;
+      }
+    }
   }
 }
+</style>

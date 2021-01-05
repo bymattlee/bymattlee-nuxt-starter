@@ -41,7 +41,7 @@ body,
 a {
   @apply text-grey-light-c;
   text-decoration: none;
-  transition: color $duration-slow;
+  transition: color $duration-slow, background-color $duration-slow;
 
   &:hover {
     @media (hover: hover) {
