@@ -1,10 +1,10 @@
 <template>
-  <nav class="mt-40">
+  <nav>
     <ul>
       <li
         v-for="(socialSite, index) in socialSites"
         :key="index"
-        class="inline-block mx-5 md:mx-10"
+        class="inline-block mx-10"
       >
         <a
           v-if="socialSite.facebookUrl"

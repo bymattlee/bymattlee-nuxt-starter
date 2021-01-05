@@ -5,7 +5,7 @@
         <IconByMattLee class="w-40" />
       </NuxtLink>
       <TheFooterMenu />
-      <TheFooterSocialIcons />
+      <SocialIcons class="mt-40" />
       <p class="mt-40 uppercase text-12">
         &copy; {{ currentYear }} ByMattLee. All Rights Reserved.
       </p>
