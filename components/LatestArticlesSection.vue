@@ -8,15 +8,13 @@
         Latest Articles
       </h1>
       <div class="mt-20 sm:mt-40">
-        <template v-if="articles.length > 0">
-          <ArticlePreview
-            v-for="(article, index) in articles"
-            :key="article.slug"
-            :article="article"
-            :class="{ 'mt-30 sm:mt-50': index > 0 }"
-          />
-        </template>
-        <p v-else>No articles have been written.</p>
+        <p v-if="$fetchState.pending">Loading articles...</p>
+        <ArticlePreview
+          v-for="(article, index) in articles"
+          :key="article.slug"
+          :article="article"
+          :class="{ 'mt-30 sm:mt-50': index > 0 }"
+        />
       </div>
       <p class="mt-40">
         <LinkButton type="internal" path="/articles">
