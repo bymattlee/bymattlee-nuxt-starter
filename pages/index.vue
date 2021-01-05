@@ -1,5 +1,5 @@
 <template>
-  <div class="container container--small">
+  <div>
     <div
       v-for="(pageSection, index) in page.pageSections"
       :key="`${index}-${pageSection._type}`"

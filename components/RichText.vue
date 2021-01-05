@@ -12,7 +12,7 @@ import ExternalLink from '~/components/ExternalLink'
 export default {
   props: {
     content: {
-      type: Object,
+      type: Array,
       default: null,
     },
   },
