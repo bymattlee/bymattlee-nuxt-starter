@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../assets/scss/1-setup/layout';
+@import '~/assets/scss/1-setup/layout';
 
 .link-button {
   @apply bg-grey-light-c text-black leading-loose;

@@ -33,7 +33,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../assets/scss/1-setup/layout';
+@import '~/assets/scss/1-setup/layout';
 
 .rich-text {
   h1,

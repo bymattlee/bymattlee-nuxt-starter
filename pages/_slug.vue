@@ -19,8 +19,8 @@
 
 <script>
 import { groq } from '@nuxtjs/sanity'
-import throwError from '../utilities/throwError.js'
-import dynamicHeadTags from '../utilities/dynamicHeadTags.js'
+import throwError from '~/utilities/throwError.js'
+import dynamicHeadTags from '~/utilities/dynamicHeadTags.js'
 
 export const query = groq`
   *[_type == "page" && slug.current == $slug && !(_id in path('drafts.**'))] {
