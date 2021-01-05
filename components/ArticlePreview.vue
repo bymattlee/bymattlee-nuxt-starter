@@ -17,15 +17,16 @@
           <span>/</span>
           <span class="uppercase text-14">
             Categories:
-            <template v-for="(category, index) in article.categories">
-              <NuxtLink
-                :key="category.slug"
-                :to="category.slug | articleCategoryUrl"
-              >
+            <span
+              v-for="(category, index) in article.categories"
+              :key="category.slug"
+              v-trim-whitespace
+            >
+              <NuxtLink :to="category.slug | articleCategoryUrl">
                 {{ category.title }}
               </NuxtLink>
               {{ index !== article.categories.length - 1 ? ', ' : '' }}
-            </template>
+            </span>
           </span>
         </template>
       </div>
