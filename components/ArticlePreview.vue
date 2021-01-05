@@ -7,7 +7,12 @@
         </NuxtLink>
       </h1>
       <div class="mt-5">
-        <time class="uppercase text-14">{{ article.publishedAt }}</time>
+        <time
+          class="uppercase text-14"
+          :datetime="article.publishedAt | htmlDate"
+        >
+          {{ article.publishedAt | readableDate }}
+        </time>
         <template v-if="article.categories">
           <span>/</span>
           <span class="uppercase text-14">
