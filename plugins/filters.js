@@ -10,3 +10,13 @@ Vue.filter('htmlDate', (isoDate) => {
 Vue.filter('readableDate', (isoDate) => {
   return DateTime.fromISO(isoDate).toFormat('LLL dd, yyyy')
 })
+
+// Return full article url
+Vue.filter('articleUrl', (slug) => {
+  return `/articles/${slug}`
+})
+
+// Return full article category url
+Vue.filter('articleCategoryUrl', (slug) => {
+  return `/articles/category/${slug}`
+})

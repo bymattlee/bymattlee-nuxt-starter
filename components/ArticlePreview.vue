@@ -2,7 +2,7 @@
   <article>
     <header>
       <h1 class="text-18 sm:text-24">
-        <NuxtLink :to="`/articles/${article.slug}`">
+        <NuxtLink :to="article.slug | articleUrl">
           {{ article.title }}
         </NuxtLink>
       </h1>
@@ -20,7 +20,7 @@
             <template v-for="(category, index) in article.categories">
               <NuxtLink
                 :key="category.slug"
-                :to="`/articles/category/${category.slug}`"
+                :to="category.slug | articleCategoryUrl"
               >
                 {{ category.title }}
               </NuxtLink>
