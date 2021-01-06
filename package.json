@@ -25,6 +25,7 @@
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/eslint-module": "^2.0.0",
+    "@nuxtjs/robots": "^2.4.2",
     "@nuxtjs/stylelint-module": "^4.0.0",
     "@nuxtjs/tailwindcss": "^3.1.0",
     "@tailwindcss/aspect-ratio": "^0.2.0",
