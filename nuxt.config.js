@@ -1,7 +1,6 @@
 export default {
-  // Target (https://go.nuxtjs.dev/config-target)
-  // target: 'static',
-  // Global page headers (https://go.nuxtjs.dev/config-head)
+  // target: 'static', // Enable when generating static files
+
   head: {
     title: 'ByMattLee Vue Nuxt Starter',
     meta: [
@@ -40,37 +39,28 @@ export default {
     ],
   },
 
-  // Global CSS (https://go.nuxtjs.dev/config-css)
   css: ['~/assets/scss/main.scss'],
 
-  // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
     '~/plugins/filters.js',
     '~/plugins/sanity-image-builder.js',
     '~/plugins/lazysizes.client.js',
   ],
 
-  // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
 
-  // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
-    // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
-    // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
-    // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
     '@nuxtjs/sanity',
   ],
 
-  // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     '@nuxtjs/redirect-module',
     '@nuxtjs/robots',
   ],
 
-  // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
     extractCSS: process.env.NODE_ENV === 'production',
     html: {
@@ -92,7 +82,6 @@ export default {
     },
   },
 
-  // Redirect configuration
   redirect: [
     {
       from: '^(\\/[^\\?]*[^\\/])(\\?.*)?$',
@@ -100,12 +89,10 @@ export default {
     },
   ],
 
-  // Custom Tailwind entry file
   tailwindcss: {
     cssPath: '~/assets/scss/main.scss',
   },
 
-  // Sanity configuration for data
   sanity: {
     projectId: 'afxi85wm',
     dataset: 'production',
