@@ -14,12 +14,12 @@
         <span
           v-for="(category, index) in article.categories"
           :key="category.slug"
-          v-trim-whitespace
+          class="inline-flex"
         >
           <NuxtLink :to="category.slug | articleCategoryUrl">
             {{ category.title }}
           </NuxtLink>
-          {{ index !== article.categories.length - 1 ? ', ' : '' }}
+          <span v-if="index !== article.categories.length - 1">,&nbsp;</span>
         </span>
       </span>
     </template>
