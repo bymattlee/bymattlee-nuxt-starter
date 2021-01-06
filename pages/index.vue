@@ -18,11 +18,10 @@
 </template>
 
 <script>
-import { groq } from '@nuxtjs/sanity'
 import throwError from '~/utilities/throwError.js'
 import dynamicHeadTags from '~/utilities/dynamicHeadTags.js'
 
-export const query = groq`
+export const query = `
   *[_type == "page" && slug.current == 'index' && !(_id in path('drafts.**'))] {
     pageMetaData{
       pageDescription,

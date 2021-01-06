@@ -8,6 +8,8 @@
 import ImageBlock from '~/components/RichText/ImageBlock'
 import LinkInternal from '~/components/RichText/LinkInternal'
 import LinkExternal from '~/components/RichText/LinkExternal'
+import YouTubeBlock from '~/components/RichText/YouTubeBlock'
+import VimeoBlock from '~/components/RichText/VimeoBlock'
 
 export default {
   props: {
@@ -21,6 +23,8 @@ export default {
       serializers: {
         types: {
           imageBlock: ImageBlock,
+          youtubeBlock: YouTubeBlock,
+          vimeoBlock: VimeoBlock,
         },
         marks: {
           internalLink: LinkInternal,
@@ -145,7 +149,7 @@ export default {
     list-style-type: decimal;
   }
 
-  .o-embed {
+  .embed {
     margin: 3rem 0;
     @include mq('sm') {
       margin: 4rem 0;
