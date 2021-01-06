@@ -2,7 +2,7 @@
   <article>
     <header>
       <h1 v-if="article.title" class="text-18 sm:text-24">
-        <NuxtLink :to="article.slug | articleUrl">
+        <NuxtLink :to="article.slug | articleUrl" class="text-grey-light-a">
           {{ article.title }}
         </NuxtLink>
       </h1>

@@ -1,7 +1,9 @@
 <template>
   <div class="container container--small">
     <header>
-      <h1 class="text-30 sm:text-36">'{{ category.title }}' Articles</h1>
+      <h1 class="text-30 text-grey-light-c sm:text-36">
+        '{{ category.title }}' Articles
+      </h1>
     </header>
     <div class="mt-20 sm:mt-40">
       <template v-if="category.articles.length">
