@@ -8,7 +8,7 @@
         {{ pageSection.heading }}
       </h1>
       <RichText
-        v-if="pageSection.mainContent"
+        v-if="pageSection.mainContent.length"
         :content="pageSection.mainContent"
         class="mt-10 sm:mt-20"
       />

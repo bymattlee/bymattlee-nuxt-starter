@@ -7,7 +7,7 @@
     >
       {{ article.publishedAt | readableDate }}
     </time>
-    <template v-if="article.categories">
+    <template v-if="article.categories.length">
       <span>/</span>
       <span class="uppercase text-14">
         Categories:

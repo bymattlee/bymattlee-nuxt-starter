@@ -7,7 +7,7 @@
       <h1 class="text-24 sm:text-28">{{ article.title }}</h1>
       <ArticleDateAndCategories :article="article" class="mt-5" />
       <RichText
-        v-if="article.mainContent"
+        v-if="article.mainContent.length"
         :content="article.mainContent"
         class="mt-30"
       />
