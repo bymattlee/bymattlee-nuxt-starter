@@ -18,7 +18,7 @@ export default {
       {
         hid: 'theme-color',
         name: 'theme-color',
-        content: '#212121'
+        content: '#222'
       },
       {
         hid: 'apple-mobile-web-app-capable',
@@ -33,7 +33,7 @@ export default {
       {
         hid: 'msapplication-TileColor',
         name: 'msapplication-TileColor',
-        content: '#212121'
+        content: '#222'
       },
     ],
   },
