@@ -13,10 +13,10 @@ Vue.filter('readableDate', (isoDate) => {
 
 // Return full article url
 Vue.filter('articleUrl', (slug) => {
-  return `/articles/${slug}`
+  return `/articles/${slug}/`
 })
 
 // Return full article category url
 Vue.filter('articleCategoryUrl', (slug) => {
-  return `/articles/category/${slug}`
+  return `/articles/category/${slug}/`
 })

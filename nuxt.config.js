@@ -87,6 +87,14 @@ export default {
     },
   },
 
+  // Redirect configuration
+  redirect: [
+    {
+      from: '^(\\/[^\\?]*[^\\/])(\\?.*)?$',
+      to: '$1/$2',
+    },
+  ],
+
   // Custom Tailwind entry file
   tailwindcss: {
     cssPath: '~/assets/scss/main.scss',

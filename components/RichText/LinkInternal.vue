@@ -26,9 +26,9 @@ export default {
   computed: {
     toPath() {
       if (this.dataType === 'page') {
-        return this.slug === 'index' ? '/' : `/${this.slug}`
+        return this.slug === 'index' ? '/' : `/${this.slug}/`
       } else if (this.dataType === 'article') {
-        return `/articles/${this.slug}`
+        return `/articles/${this.slug}/`
       } else {
         return this.slug
       }
