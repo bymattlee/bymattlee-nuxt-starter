@@ -1,7 +1,7 @@
 <template>
   <div>
     <TheHeader />
-    <main class="flex-1 py-40 sm:py-80" role="main">
+    <main class="flex-1 pt-40 pb-60 sm:pt-80 sm:pb-100" role="main">
       <Nuxt />
     </main>
     <TheFooter />
