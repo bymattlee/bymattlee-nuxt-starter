@@ -39,8 +39,12 @@ export default {
     return { articles }
   },
   head() {
+    const generalData = {
+      title: 'Articles',
+    }
+
     return {
-      ...dynamicHeadTags(this, 'Articles'),
+      ...dynamicHeadTags(this, generalData),
     }
   },
 }

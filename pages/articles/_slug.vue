@@ -50,8 +50,14 @@ export default {
     return { article }
   },
   head() {
+    const generalData = {
+      title: this.article.title,
+      description: this.article.excerpt,
+      shareImage: this.article.featuredImage,
+    }
+
     return {
-      ...dynamicHeadTags(this, this.article.title),
+      ...dynamicHeadTags(this, generalData, this.article.articleMetaData || {}),
     }
   },
 }

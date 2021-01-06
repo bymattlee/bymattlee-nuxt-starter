@@ -1,25 +1,32 @@
-const dynamicHeadTags = (vm, pageTitle = '') => {
-  // Check for specific page meta data from CMS
-  const pageMetaDataTitle =
-    vm.page && vm.page.pageMetaData && vm.page.pageMetaData.pageTitle
-      ? vm.page.pageMetaData.pageTitle
-      : ''
-  const pageMetaDataDescription =
-    vm.page && vm.page.pageMetaData && vm.page.pageMetaData.pageDescription
-      ? vm.page.pageMetaData.pageDescription
-      : ''
-  const pageMetaDataShareImage =
-    vm.page && vm.page.pageMetaData && vm.page.pageMetaData.pageShareImage
-      ? vm.page.pageMetaData.pageShareImage
-      : ''
+const dynamicHeadTags = (vm, generalData, specificData) => {
+  // Merge data with defaults
+  generalData = {
+    title: '',
+    description: '',
+    shareImage: '',
+    ...generalData,
+  }
+  specificData = {
+    title: specificData && specificData.pageTitle ? specificData.pageTitle : '',
+    description:
+      specificData && specificData.pageDescription
+        ? specificData.pageDescription
+        : '',
+    shareImage:
+      specificData && specificData.pageShareImage
+        ? specificData.pageShareImage
+        : '',
+  }
 
   // Set general meta data vars from CMS or above
-  const metaTitle = pageMetaDataTitle
   const siteName = vm.$store.state.seo.siteName
   const siteDescription =
-    pageMetaDataDescription || vm.$store.state.seo.siteDescription
+    specificData.description ||
+    generalData.description ||
+    vm.$store.state.seo.siteDescription
   const siteShareImage =
-    vm.$urlFor(pageMetaDataShareImage).width(1200).url() ||
+    vm.$urlFor(specificData.shareImage).width(1200).url() ||
+    vm.$urlFor(generalData.shareImage).width(1200).url() ||
     vm.$urlFor(vm.$store.state.seo.siteShareImage).width(1200).url()
   const favicon32 = vm.$urlFor(vm.$store.state.favicons.favicon).width(32).url()
   const favicon16 = vm.$urlFor(vm.$store.state.favicons.favicon).width(16).url()
@@ -31,10 +38,12 @@ const dynamicHeadTags = (vm, pageTitle = '') => {
   const currentUrl = `${vm.$store.state.hostname}${vm.$route.fullPath}`
 
   // Construct full page title
-  const fullTitle = pageTitle ? `${pageTitle} | ${siteName}` : siteName
+  const fullTitle = generalData.title
+    ? `${generalData.title} | ${siteName}`
+    : siteName
 
   return {
-    title: metaTitle || fullTitle,
+    title: specificData.title || fullTitle,
     meta: [
       {
         hid: 'description',
@@ -59,7 +68,7 @@ const dynamicHeadTags = (vm, pageTitle = '') => {
       {
         hid: 'og:title',
         name: 'og:title',
-        content: metaTitle || pageTitle || siteName,
+        content: specificData.title || generalData.title || siteName,
       },
       {
         hid: 'og:site_name',
@@ -99,7 +108,7 @@ const dynamicHeadTags = (vm, pageTitle = '') => {
       {
         hid: 'twitter:title',
         name: 'twitter:title',
-        content: metaTitle || pageTitle || siteName,
+        content: specificData.title || generalData.title || siteName,
       },
       {
         hid: 'twitter:url',

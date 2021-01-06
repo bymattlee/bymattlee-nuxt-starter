@@ -60,8 +60,12 @@ export default {
     return { page }
   },
   head() {
+    const generalData = {
+      title: this.page.title,
+    }
+
     return {
-      ...dynamicHeadTags(this, this.page.title),
+      ...dynamicHeadTags(this, generalData, this.page.pageMetaData || {}),
     }
   },
 }

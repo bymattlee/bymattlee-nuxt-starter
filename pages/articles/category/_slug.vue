@@ -61,8 +61,14 @@ export default {
     return { category }
   },
   head() {
+    const category = this.category
+    const generalData = {
+      title: `'${category.title}' Articles`,
+      description: category.description,
+    }
+
     return {
-      ...dynamicHeadTags(this, `'${this.category.title}' Articles`),
+      ...dynamicHeadTags(this, generalData),
     }
   },
 }
