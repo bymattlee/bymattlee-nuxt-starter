@@ -1,4 +1,5 @@
 import getSiteMapRoutes from './utilities/getSiteMapRoutes.js'
+import articleFeedData from './utilities/articleFeedData.js'
 
 export default {
   // target: 'static', // Enable when generating static files
@@ -60,7 +61,12 @@ export default {
     '@aceforth/nuxt-optimized-images',
   ],
 
-  modules: ['@nuxtjs/redirect-module', '@nuxtjs/robots', '@nuxtjs/sitemap'],
+  modules: [
+    '@nuxtjs/redirect-module',
+    '@nuxtjs/robots',
+    '@nuxtjs/sitemap',
+    '@nuxtjs/feed',
+  ],
 
   build: {
     extractCSS: process.env.NODE_ENV === 'production',
@@ -122,6 +128,8 @@ export default {
     trailingSlash: true,
     routes: getSiteMapRoutes,
   },
+
+  feed: [articleFeedData],
 
   googleAnalytics: {
     id: 'G-8LE1MNHB8C',
