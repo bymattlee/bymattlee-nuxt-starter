@@ -55,6 +55,7 @@ export default {
     '@nuxtjs/tailwindcss',
     '@nuxtjs/sanity',
     '@nuxtjs/google-analytics',
+    '@aceforth/nuxt-optimized-images',
   ],
 
   modules: [
@@ -92,6 +93,10 @@ export default {
 
   tailwindcss: {
     cssPath: '~/assets/scss/main.scss',
+  },
+
+  optimizedImages: {
+    optimizeImages: true,
   },
 
   sanity: {
