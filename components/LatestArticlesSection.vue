@@ -17,7 +17,7 @@
         />
       </div>
       <p class="mt-40">
-        <LinkButton type="internal" path="/articles">
+        <LinkButton type="internal" path="/articles/">
           &raquo; View All Articles
         </LinkButton>
       </p>
