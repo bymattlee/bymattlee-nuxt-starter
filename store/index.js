@@ -3,7 +3,6 @@ import { footerQuery } from './footer.js'
 import { seoQuery } from './seo.js'
 import { faviconsQuery } from './favicons.js'
 import { socialQuery } from './social.js'
-import { analyticsQuery } from './analytics.js'
 
 export const state = () => ({
   hostname:
@@ -43,11 +42,5 @@ export const actions = {
       .fetch(socialQuery)
       .catch((err) => console.error(err)) // eslint-disable-line no-console
     commit('social/setData', socialData)
-
-    // Set analytics data
-    const analyticsData = await $sanity
-      .fetch(analyticsQuery)
-      .catch((err) => console.error(err)) // eslint-disable-line no-console
-    commit('analytics/setData', analyticsData)
   },
 }

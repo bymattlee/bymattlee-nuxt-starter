@@ -54,6 +54,7 @@ export default {
     '@nuxtjs/stylelint-module',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/sanity',
+    '@nuxtjs/google-analytics',
   ],
 
   modules: [
@@ -96,5 +97,10 @@ export default {
   sanity: {
     projectId: 'afxi85wm',
     dataset: 'production',
+  },
+
+  googleAnalytics: {
+    id: 'G-8LE1MNHB8C',
+    dev: process.env.NODE_ENV === 'development',
   },
 }
