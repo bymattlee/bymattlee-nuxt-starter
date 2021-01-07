@@ -1,3 +1,4 @@
+import config from '../nuxt.config.js'
 import { headerQuery } from './header.js'
 import { footerQuery } from './footer.js'
 import { seoQuery } from './seo.js'
@@ -5,10 +6,7 @@ import { faviconsQuery } from './favicons.js'
 import { socialQuery } from './social.js'
 
 export const state = () => ({
-  hostname:
-    process.env.NODE_ENV === 'production'
-      ? 'https://bymattlee-vue-nuxt-starter.netlify.app'
-      : 'http://localhost:3000',
+  hostname: config.sitemap.hostname,
 })
 
 export const actions = {

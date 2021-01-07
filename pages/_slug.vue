@@ -21,7 +21,7 @@
 import throwError from '~/utilities/throwError.js'
 import dynamicHeadTags from '~/utilities/dynamicHeadTags.js'
 
-export const query = `
+const query = `
   *[_type == "page" && slug.current == $slug && !(_id in path('drafts.**'))] {
     pageMetaData{
       pageDescription,

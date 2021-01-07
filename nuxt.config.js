@@ -1,3 +1,5 @@
+import getSiteMapRoutes from './utilities/getSiteMapRoutes.js'
+
 export default {
   // target: 'static', // Enable when generating static files
 
@@ -5,36 +7,36 @@ export default {
     title: 'ByMattLee Vue Nuxt Starter',
     meta: [
       {
-        charset: 'utf-8'
+        charset: 'utf-8',
       },
       {
         name: 'viewport',
-        content: 'width=device-width, initial-scale=1, maximum-scale=5'
+        content: 'width=device-width, initial-scale=1, maximum-scale=5',
       },
       {
         hid: 'mobile-web-app-capable',
         name: 'mobile-web-app-capable',
-        content: 'yes'
+        content: 'yes',
       },
       {
         hid: 'theme-color',
         name: 'theme-color',
-        content: '#222'
+        content: '#222',
       },
       {
         hid: 'apple-mobile-web-app-capable',
         name: 'apple-mobile-web-app-capable',
-        content: 'yes'
+        content: 'yes',
       },
       {
         hid: 'apple-mobile-web-app-status-bar-style',
         name: 'apple-mobile-web-app-status-bar-style',
-        content: 'black-translucent'
+        content: 'black-translucent',
       },
       {
         hid: 'msapplication-TileColor',
         name: 'msapplication-TileColor',
-        content: '#222'
+        content: '#222',
       },
     ],
   },
@@ -58,10 +60,7 @@ export default {
     '@aceforth/nuxt-optimized-images',
   ],
 
-  modules: [
-    '@nuxtjs/redirect-module',
-    '@nuxtjs/robots',
-  ],
+  modules: ['@nuxtjs/redirect-module', '@nuxtjs/robots', '@nuxtjs/sitemap'],
 
   build: {
     extractCSS: process.env.NODE_ENV === 'production',
@@ -80,11 +79,16 @@ export default {
         removeRedundantAttributes: true,
         removeScriptTypeAttributes: true,
         removeStyleLinkTypeAttributes: true,
-      }
+      },
     },
   },
 
+  router: {
+    trailingSlash: true,
+  },
+
   redirect: [
+    // Redirect URLs to use a trailing slash
     {
       from: '^(\\/[^\\?]*[^\\/])(\\?.*)?$',
       to: '$1/$2',
@@ -102,6 +106,21 @@ export default {
   sanity: {
     projectId: 'afxi85wm',
     dataset: 'production',
+  },
+
+  robots: {
+    UserAgent: '*',
+    Disallow: '/',
+    Sitemap: '/sitemap.xml',
+  },
+
+  sitemap: {
+    hostname:
+      process.env.NODE_ENV === 'production'
+        ? 'https://bymattlee-vue-nuxt-starter.netlify.app'
+        : 'http://localhost:3000',
+    trailingSlash: true,
+    routes: getSiteMapRoutes,
   },
 
   googleAnalytics: {
