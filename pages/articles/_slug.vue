@@ -1,5 +1,9 @@
 <template>
-  <div class="container container--small">
+  <div
+    class="container container--small"
+    data-s2r="single"
+    data-s2r-type="stagger-fade-up"
+  >
     <ArticleDetail :article="article" />
   </div>
 </template>
@@ -59,6 +63,9 @@ export default {
     return {
       ...dynamicHeadTags(this, generalData, this.article.articleMetaData || {}),
     }
+  },
+  mounted() {
+    window.s2r.reInit()
   },
 }
 </script>

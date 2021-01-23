@@ -1,10 +1,17 @@
 <template>
-  <div class="container container--small">
-    <h1 class="text-30 text-grey-light-c sm:text-36">Page not found</h1>
-    <p class="mt-20 sm:mt-25">{{ error.message }}</p>
-    <p class="mt-20 sm:mt-25">
-      <LinkButton type="internal" path="/">&raquo; Go Back Home</LinkButton>
-    </p>
+  <div class="container container--small" data-s2r="group">
+    <h1
+      class="text-30 text-grey-light-c sm:text-36"
+      data-s2r-el="block-fade-up"
+    >
+      Page not found
+    </h1>
+    <div data-s2r-el="stagger-fade-up" data-s2r-delay="0.2">
+      <p class="mt-20 sm:mt-25">{{ error.message }}</p>
+      <p class="mt-20 sm:mt-25">
+        <LinkButton type="internal" path="/">&raquo; Go Back Home</LinkButton>
+      </p>
+    </div>
   </div>
 </template>
 
@@ -22,6 +29,9 @@ export default {
     return {
       ...dynamicHeadTags(this, 'Page not found'),
     }
+  },
+  mounted() {
+    window.s2r.reInit()
   },
 }
 </script>

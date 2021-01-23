@@ -1,6 +1,18 @@
 <template>
   <div class="rich-text">
-    <SanityContent :blocks="content" :serializers="serializers" />
+    <SanityContent
+      v-if="fadeType === 'block'"
+      :blocks="content"
+      :serializers="serializers"
+      data-s2r-el
+    />
+    <SanityContent
+      v-if="fadeType === 'stagger'"
+      :blocks="content"
+      :serializers="serializers"
+      data-s2r-el="stagger-fade-up"
+      data-s2r-delay="0.2"
+    />
   </div>
 </template>
 
@@ -16,6 +28,13 @@ export default {
     content: {
       type: Array,
       default: null,
+    },
+    fadeType: {
+      type: String,
+      default: 'block',
+      validator(value) {
+        return ['block', 'stagger'].includes(value)
+      },
     },
   },
   data() {

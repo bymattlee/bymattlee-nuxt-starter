@@ -13,11 +13,6 @@
 
 <script>
 export default {
-  computed: {
-    menuOverlayIsOpen() {
-      return this.$store.state.menuOverlay.isOpen
-    },
-  },
   head() {
     return {
       htmlAttrs: {
@@ -27,6 +22,11 @@ export default {
         class: [this.menuOverlayIsOpen ? 'overflow-hidden' : ''],
       },
     }
+  },
+  computed: {
+    menuOverlayIsOpen() {
+      return this.$store.state.menuOverlay.isOpen
+    },
   },
 }
 </script>

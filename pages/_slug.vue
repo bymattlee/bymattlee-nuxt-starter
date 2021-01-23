@@ -71,5 +71,8 @@ export default {
       ...dynamicHeadTags(this, generalData, this.page.pageMetaData || {}),
     }
   },
+  mounted() {
+    window.s2r.reInit()
+  },
 }
 </script>
