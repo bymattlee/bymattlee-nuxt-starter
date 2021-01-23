@@ -1,6 +1,4 @@
-import { groq } from '@nuxtjs/sanity'
-
-export const headerQuery = groq`
+export const headerQuery = `
   *[_type == "sectionsHeader" && !(_id in path('drafts.**'))]{
     'menu': headerMenu->menuItems[]{
       'name': menuItemName,

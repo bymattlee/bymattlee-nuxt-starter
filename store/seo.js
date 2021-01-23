@@ -1,6 +1,4 @@
-import { groq } from '@nuxtjs/sanity'
-
-export const seoQuery = groq`
+export const seoQuery = `
   *[_type == "settingsSeo" && !(_id in path('drafts.**'))]{
     siteDescription,
     siteName,

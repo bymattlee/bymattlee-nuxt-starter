@@ -1,6 +1,4 @@
-import { groq } from '@nuxtjs/sanity'
-
-export const faviconsQuery = groq`
+export const faviconsQuery = `
   *[_type == "settingsFavicons" && !(_id in path('drafts.**'))]{
     appleTouchIcon,
     favicon

@@ -1,6 +1,4 @@
-import { groq } from '@nuxtjs/sanity'
-
-export const socialQuery = groq`
+export const socialQuery = `
   *[_type == "settingsSocial" && !(_id in path('drafts.**'))]{
     socialSites[] {
       facebookUrl,

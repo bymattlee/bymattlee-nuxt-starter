@@ -1,6 +1,4 @@
-import { groq } from '@nuxtjs/sanity'
-
-export const footerQuery = groq`
+export const footerQuery = `
   *[_type == "sectionsFooter" && !(_id in path('drafts.**'))]{
     'menu': footerMenu->menuItems[]{
       'name': menuItemName,
