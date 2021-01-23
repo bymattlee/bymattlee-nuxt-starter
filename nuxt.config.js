@@ -139,7 +139,7 @@ export default {
   feed: [articleFeedData],
 
   googleAnalytics: {
-    id: 'G-8LE1MNHB8C',
+    id: 'G-8K28D0N1CK',
     dev: process.env.NODE_ENV === 'development',
   },
 }
