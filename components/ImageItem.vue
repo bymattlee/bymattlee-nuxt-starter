@@ -1,5 +1,5 @@
 <template>
-  <img class="lazyload" :data-srcset="imageSrcset" sizes="auto" />
+  <img class="w-full lazyload" :data-srcset="imageSrcset" sizes="auto" />
 </template>
 
 <script>
