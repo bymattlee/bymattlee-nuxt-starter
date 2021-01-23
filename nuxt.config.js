@@ -5,7 +5,7 @@ export default {
   // target: 'static', // Enable when generating static files
 
   head: {
-    title: 'ByMattLee Vue Nuxt Starter',
+    title: 'ByMattLee Nuxt Starter',
     meta: [
       {
         charset: 'utf-8',
@@ -128,7 +128,7 @@ export default {
   sitemap: {
     hostname:
       process.env.NODE_ENV === 'production'
-        ? 'https://bymattlee-vue-nuxt-starter.netlify.app'
+        ? 'https://bymattlee-nuxt-starter.netlify.app'
         : 'http://localhost:3000',
     trailingSlash: true,
     routes: getSiteMapRoutes,

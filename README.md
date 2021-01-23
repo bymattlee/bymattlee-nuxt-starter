@@ -1,4 +1,4 @@
-# ByMattLee Vue Nuxt Starter
+# ByMattLee Nuxt Starter
 
 ## Build Setup
 
