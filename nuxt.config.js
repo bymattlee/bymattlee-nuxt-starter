@@ -2,7 +2,7 @@ import getSiteMapRoutes from './utilities/getSiteMapRoutes.js'
 import articleFeedData from './utilities/articleFeedData.js'
 
 export default {
-  // target: 'static', // Enable when generating static files
+  target: 'static',
 
   head: {
     title: 'ByMattLee Nuxt Starter',
