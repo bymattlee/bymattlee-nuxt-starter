@@ -8,7 +8,10 @@
       >
         <NuxtLink
           :to="menuItem.url"
-          class="inline-block font-heading uppercase text-14"
+          :class="[
+            'inline-block font-heading uppercase text-14',
+            { 'nuxt-link-exact-active': isSameSection(`${menuItem.url}`) },
+          ]"
         >
           {{ menuItem.name }}
         </NuxtLink>
@@ -23,6 +26,14 @@ export default {
     return {
       menu: this.$store.state.header.menu,
     }
+  },
+  methods: {
+    isSameSection(url) {
+      // Highlight menu item if user is in the same section (same beginning path)
+      const currentItemSlug = url.split('/')[1]
+      const currentSectionSlug = this.$route.path.split('/')[1]
+      return currentItemSlug === currentSectionSlug
+    },
   },
 }
 </script>

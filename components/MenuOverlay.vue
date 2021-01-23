@@ -12,7 +12,10 @@
           >
             <NuxtLink
               :to="menuItem.url"
-              class="inline-block font-heading uppercase text-16"
+              :class="[
+                'inline-block font-heading uppercase text-16',
+                { 'nuxt-link-exact-active': isSameSection(`${menuItem.url}`) },
+              ]"
               @click.native="close"
             >
               {{ menuItem.name }}
@@ -38,6 +41,12 @@ export default {
     },
   },
   methods: {
+    isSameSection(url) {
+      // Highlight menu item if user is in the same section (same beginning path)
+      const currentItemSlug = url.split('/')[1]
+      const currentSectionSlug = this.$route.path.split('/')[1]
+      return currentItemSlug === currentSectionSlug
+    },
     close() {
       this.$store.commit('menuOverlay/close')
     },

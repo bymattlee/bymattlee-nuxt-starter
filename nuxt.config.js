@@ -46,7 +46,7 @@ export default {
 
   plugins: [
     '~/plugins/filters.js',
-    '~/plugins/sanity-image-builder.js',
+    '~/plugins/sanityImageBuilder.js',
     '~/plugins/lazysizes.client.js',
     '~/plugins/s2r.client.js',
   ],
