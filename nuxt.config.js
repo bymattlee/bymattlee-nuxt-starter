@@ -56,7 +56,7 @@ export default {
     '@nuxtjs/stylelint-module',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/sanity',
-    '@nuxtjs/google-analytics',
+    '@nuxtjs/google-gtag',
     '@aceforth/nuxt-optimized-images',
   ],
 
@@ -139,8 +139,7 @@ export default {
 
   feed: [articleFeedData],
 
-  googleAnalytics: {
+  'google-gtag': {
     id: 'G-8K28D0N1CK',
-    dev: process.env.NODE_ENV === 'development',
   },
 }
