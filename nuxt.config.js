@@ -119,6 +119,7 @@ export default {
   sanity: {
     projectId: 'afxi85wm',
     dataset: 'nuxt',
+    useCdn: false,
   },
 
   robots: {
