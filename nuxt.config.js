@@ -42,7 +42,7 @@ export default {
     ],
   },
 
-  css: ['~/assets/scss/main.scss'],
+  components: true,
 
   plugins: [
     '~/plugins/filters.js',
@@ -50,8 +50,6 @@ export default {
     '~/plugins/lazysizes.client.js',
     '~/plugins/s2r.client.js',
   ],
-
-  components: true,
 
   buildModules: [
     '@nuxtjs/eslint-module',
@@ -90,10 +88,6 @@ export default {
     },
   },
 
-  eslint: {
-    cache: false,
-  },
-
   router: {
     trailingSlash: true,
   },
@@ -105,6 +99,14 @@ export default {
       to: '$1/$2',
     },
   ],
+
+  eslint: {
+    cache: false,
+  },
+
+  loading: false,
+
+  css: ['~/assets/scss/main.scss'],
 
   tailwindcss: {
     cssPath: '~/assets/scss/main.scss',
