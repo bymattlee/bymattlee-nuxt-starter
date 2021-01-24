@@ -1,5 +1,9 @@
 <template>
-  <div class="container container--small" data-s2r="group">
+  <div
+    v-if="!this.$fetchState.pending"
+    class="container container--small"
+    data-s2r="group"
+  >
     <header>
       <h1
         class="text-30 text-grey-light-c sm:text-36"
