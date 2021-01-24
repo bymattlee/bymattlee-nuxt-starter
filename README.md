@@ -39,6 +39,6 @@ $ yarn start
 
 ## General Features
 * Utilizes Nuxt's 'static' mode to generate HTML files for every page
-* Data is coming from the Sanity Cloud API. This pairs perfectly with the [ByMattLee Sanity Starter CMS](https://github.com/bymattlee/bymattlee-sanity-starter-cms)
+* Data is coming from the Sanity Cloud API. This pairs perfectly with the [ByMattLee Sanity Starter CMS](https://github.com/bymattlee/bymattlee-sanity-studio-starter)
 * Features Tailwind CSS with PurgeCSS for production builds
 * Includes RSS feed, robots.txt, sitemap.xml generation
