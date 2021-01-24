@@ -1,33 +1,39 @@
 <template>
-  <div class="container container--small" data-s2r="group">
-    <header>
-      <h1
-        class="text-30 text-grey-light-c sm:text-36"
-        data-s2r-el="block-fade-up"
+  <div
+    v-if="category.title !== 'Page Not Found'"
+    class="container container--small"
+    data-s2r="group"
+  >
+    <template v-if="!this.$fetchState.pending">
+      <header>
+        <h1
+          class="text-30 text-grey-light-c sm:text-36"
+          data-s2r-el="block-fade-up"
+        >
+          '{{ category.title }}' Articles
+        </h1>
+      </header>
+      <div
+        class="mt-20 sm:mt-40"
+        data-s2r-el="stagger-fade-up"
+        data-s2r-delay="0.2"
       >
-        '{{ category.title }}' Articles
-      </h1>
-    </header>
-    <div
-      class="mt-20 sm:mt-40"
-      data-s2r-el="stagger-fade-up"
-      data-s2r-delay="0.2"
-    >
-      <template v-if="category.articles.length">
-        <ArticlePreview
-          v-for="(article, index) in category.articles"
-          :key="article.slug"
-          :article="article"
-          :class="{ 'mt-30 sm:mt-50': index > 0 }"
-        />
-      </template>
-      <p v-else>No articles have been written.</p>
-    </div>
+        <template v-if="category.articles.length">
+          <ArticlePreview
+            v-for="(article, index) in category.articles"
+            :key="article.slug"
+            :article="article"
+            :class="{ 'mt-30 sm:mt-50': index > 0 }"
+          />
+        </template>
+        <p v-else>No articles have been written.</p>
+      </div>
+    </template>
   </div>
+  <ErrorScreen v-else />
 </template>
 
 <script>
-import throwError from '~/utilities/throwError.js'
 import dynamicHeadTags from '~/utilities/dynamicHeadTags.js'
 
 const query = `
@@ -49,16 +55,20 @@ const query = `
 `
 
 export default {
-  async asyncData({ $sanity, params, error }) {
-    const category = await $sanity.fetch(query, params).catch((e) => {
-      // Throw error if issue with query
-      throwError(error)
-    })
+  data() {
+    return {
+      category: {},
+    }
+  },
+  async fetch() {
+    this.category = await this.$sanity.fetch(query, this.$route.params)
 
-    // Throw error if data is empty
-    if (category === null) throwError(error)
-
-    return { category }
+    if (this.category === null) {
+      this.category = {
+        title: 'Page Not Found',
+        description: '',
+      }
+    }
   },
   head() {
     const category = this.category
@@ -71,8 +81,18 @@ export default {
       ...dynamicHeadTags(this, generalData),
     }
   },
-  mounted() {
-    window.s2r.reInit()
+  watch: {
+    category() {
+      // Waits until the markup is rendered before reinitializing s2r
+      this.$nextTick(() => {
+        const interval = setInterval(() => {
+          if (!this.$fetchState.pending) {
+            window.s2r.reInit()
+            clearInterval(interval)
+          }
+        }, 10)
+      })
+    },
   },
 }
 </script>

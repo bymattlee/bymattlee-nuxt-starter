@@ -1,6 +1,6 @@
 <template>
   <section v-if="!$fetchState.pending">
-    <div ref="container" class="container container--small" data-s2r="group">
+    <div class="container container--small" data-s2r="group">
       <h1
         v-if="pageSection.heading"
         class="text-30 text-grey-light-c sm:text-36"
@@ -20,7 +20,7 @@
           :class="{ 'mt-30 sm:mt-50': index > 0 }"
         />
       </div>
-      <p class="mt-40">
+      <p class="mt-40" data-s2r-el="block-fade-up" data-s2r-delay="0.5">
         <LinkButton type="internal" path="/articles/">
           &raquo; View All Articles
         </LinkButton>
@@ -63,7 +63,7 @@ export default {
       // Waits until the markup is rendered before reinitializing s2r
       this.$nextTick(() => {
         const interval = setInterval(() => {
-          if (typeof this.$refs.container !== 'undefined') {
+          if (!this.$fetchState.pending) {
             window.s2r.reInit()
             clearInterval(interval)
           }

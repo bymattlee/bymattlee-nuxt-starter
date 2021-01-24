@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="page.title !== 'Page Not Found'">
     <div
       v-for="(pageSection, index) in page.pageSections"
       :key="`${index}-${pageSection._type}`"
@@ -15,10 +15,10 @@
       />
     </div>
   </div>
+  <ErrorScreen v-else />
 </template>
 
 <script>
-import throwError from '~/utilities/throwError.js'
 import dynamicHeadTags from '~/utilities/dynamicHeadTags.js'
 
 const query = `
@@ -48,19 +48,19 @@ const query = `
 `
 
 export default {
-  async asyncData({ $sanity, params, error, redirect }) {
-    // If user lands on /index, redirect to /
-    if (params.slug === 'index') redirect('/')
+  data() {
+    return {
+      page: {},
+    }
+  },
+  async fetch() {
+    this.page = await this.$sanity.fetch(query, this.$route.params)
 
-    const page = await $sanity.fetch(query, params).catch((e) => {
-      // Throw error if issue with query
-      throwError(error)
-    })
-
-    // Throw error if data is empty
-    if (page === null) throwError(error)
-
-    return { page }
+    if (this.$route.params.slug === 'index' || this.page === null) {
+      this.page = {
+        title: 'Page Not Found',
+      }
+    }
   },
   head() {
     const generalData = {
@@ -71,8 +71,18 @@ export default {
       ...dynamicHeadTags(this, generalData, this.page.pageMetaData || {}),
     }
   },
-  mounted() {
-    window.s2r.reInit()
+  watch: {
+    page() {
+      // Waits until the markup is rendered before reinitializing s2r
+      this.$nextTick(() => {
+        const interval = setInterval(() => {
+          if (!this.$fetchState.pending) {
+            window.s2r.reInit()
+            clearInterval(interval)
+          }
+        }, 10)
+      })
+    },
   },
 }
 </script>

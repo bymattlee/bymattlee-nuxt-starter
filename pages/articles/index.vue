@@ -43,9 +43,13 @@ const query = `
 `
 
 export default {
-  async asyncData({ $sanity }) {
-    const articles = await $sanity.fetch(query)
-    return { articles }
+  data() {
+    return {
+      articles: [],
+    }
+  },
+  async fetch() {
+    this.articles = await this.$sanity.fetch(query)
   },
   head() {
     const generalData = {
@@ -56,8 +60,18 @@ export default {
       ...dynamicHeadTags(this, generalData),
     }
   },
-  mounted() {
-    window.s2r.reInit()
+  watch: {
+    articles() {
+      // Waits until the markup is rendered before reinitializing s2r
+      this.$nextTick(() => {
+        const interval = setInterval(() => {
+          if (!this.$fetchState.pending) {
+            window.s2r.reInit()
+            clearInterval(interval)
+          }
+        }, 10)
+      })
+    },
   },
 }
 </script>
