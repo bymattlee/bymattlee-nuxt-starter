@@ -1,3 +1,8 @@
 [build]
   command = "yarn generate"
   publish = "dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
