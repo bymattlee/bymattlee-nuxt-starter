@@ -1,11 +1,13 @@
 <template>
-  <div
-    v-if="article.title !== 'Page Not Found'"
-    class="container container--small"
-    data-s2r="single"
-    data-s2r-type="stagger-fade-up"
-  >
-    <ArticleDetail v-if="!this.$fetchState.pending" :article="article" />
+  <div v-if="article.title !== 'Page Not Found'">
+    <div
+      v-if="!this.$fetchState.pending"
+      class="container container--small"
+      data-s2r="single"
+      data-s2r-type="stagger-fade-up"
+    >
+      <ArticleDetail :article="article" />
+    </div>
   </div>
   <ErrorScreen v-else />
 </template>

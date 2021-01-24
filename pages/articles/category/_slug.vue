@@ -1,10 +1,10 @@
 <template>
-  <div
-    v-if="category.title !== 'Page Not Found'"
-    class="container container--small"
-    data-s2r="group"
-  >
-    <template v-if="!this.$fetchState.pending">
+  <div v-if="category.title !== 'Page Not Found'">
+    <div
+      v-if="!this.$fetchState.pending"
+      class="container container--small"
+      data-s2r="group"
+    >
       <header>
         <h1
           class="text-30 text-grey-light-c sm:text-36"
@@ -28,7 +28,7 @@
         </template>
         <p v-else>No articles have been written.</p>
       </div>
-    </template>
+    </div>
   </div>
   <ErrorScreen v-else />
 </template>
