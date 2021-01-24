@@ -122,6 +122,10 @@ export default {
     useCdn: false,
   },
 
+  generate: {
+    fallback: '404.html',
+  },
+
   robots: {
     UserAgent: '*',
     Disallow: '/',
