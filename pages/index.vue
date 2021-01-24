@@ -1,19 +1,21 @@
 <template>
   <div v-if="page.title !== 'Page Not Found'">
-    <div
-      v-for="(pageSection, index) in page.pageSections"
-      :key="`${index}-${pageSection._type}`"
-      :class="{ 'mt-40 sm:mt-60': index >= 1 }"
-    >
-      <RichTextSection
-        v-if="pageSection._type === 'richTextSection'"
-        :page-section="pageSection"
-      />
-      <LatestArticlesSection
-        v-if="pageSection._type === 'latestArticlesSection'"
-        :page-section="pageSection"
-      />
-    </div>
+    <template v-if="!this.$fetchState.pending">
+      <div
+        v-for="(pageSection, index) in page.pageSections"
+        :key="`${index}-${pageSection._type}`"
+        :class="{ 'mt-40 sm:mt-60': index >= 1 }"
+      >
+        <RichTextSection
+          v-if="pageSection._type === 'richTextSection'"
+          :page-section="pageSection"
+        />
+        <LatestArticlesSection
+          v-if="pageSection._type === 'latestArticlesSection'"
+          :page-section="pageSection"
+        />
+      </div>
+    </template>
   </div>
   <ErrorScreen v-else />
 </template>
