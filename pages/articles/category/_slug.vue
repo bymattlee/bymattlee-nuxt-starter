@@ -1,10 +1,6 @@
 <template>
-  <div v-if="category.title !== 'Page Not Found'">
-    <div
-      v-if="!this.$fetchState.pending"
-      class="container container--small"
-      data-s2r="group"
-    >
+  <div v-if="category">
+    <div class="container container--small" data-s2r="group">
       <header>
         <h1
           class="text-30 text-grey-light-c sm:text-36"
@@ -36,63 +32,31 @@
 <script>
 import dynamicHeadTags from '~/utilities/dynamicHeadTags.js'
 
-const query = `
-  *[_type == "articleCategory" && slug.current == $slug && !(_id in path('drafts.**'))] {
-    description,
-    'slug': slug.current,
-    title,
-    'articles': *[_type == "article" && references(^._id)]{
-      categories[]->{
-        title,
-        'slug': slug.current
-      },
-      excerpt,
-      publishedAt,
-      'slug': slug.current,
-      title
-    } | order(publishedAt desc)
-  }[0]
-`
-
 export default {
-  data() {
-    return {
-      category: {},
-    }
-  },
-  async fetch() {
-    this.category = await this.$sanity.fetch(query, this.$route.params)
-
-    if (this.category === null) {
-      this.category = {
-        title: 'Page Not Found',
-        description: '',
-      }
-    }
-  },
   head() {
-    const category = this.category
     const generalData = {
-      title: `'${category.title}' Articles`,
-      description: category.description,
+      title: this.category
+        ? `'${this.category.title}' Articles`
+        : 'Page Not Found',
+      description: this.category ? this.category.description : '',
     }
 
     return {
       ...dynamicHeadTags(this, generalData),
     }
   },
-  watch: {
+  computed: {
     category() {
-      // Waits until the markup is rendered before reinitializing s2r
-      this.$nextTick(() => {
-        const interval = setInterval(() => {
-          if (!this.$fetchState.pending) {
-            window.s2r.reInit()
-            clearInterval(interval)
-          }
-        }, 10)
-      })
+      const category = this.$store.state.articles.categories.filter(
+        (category) => {
+          return category.slug === this.$route.params.slug
+        }
+      )
+      return category[0] || null
     },
+  },
+  mounted() {
+    window.s2r.reInit()
   },
 }
 </script>

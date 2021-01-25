@@ -4,6 +4,8 @@ import { footerQuery } from './footer.js'
 import { seoQuery } from './seo.js'
 import { faviconsQuery } from './favicons.js'
 import { socialQuery } from './social.js'
+import { pagesQuery } from './pages.js'
+import { articlesQuery, articleCategoriesQuery } from './articles.js'
 
 export const state = () => ({
   hostname: config.sitemap.hostname,
@@ -40,5 +42,23 @@ export const actions = {
       .fetch(socialQuery)
       .catch((err) => console.error(err)) // eslint-disable-line no-console
     commit('social/setData', socialData)
+
+    // Set pages data
+    const pagesData = await $sanity
+      .fetch(pagesQuery)
+      .catch((err) => console.error(err)) // eslint-disable-line no-console
+    commit('pages/setData', pagesData)
+
+    // Set articles data
+    const articlesData = await $sanity
+      .fetch(articlesQuery)
+      .catch((err) => console.error(err)) // eslint-disable-line no-console
+    commit('articles/setArticles', articlesData)
+
+    // Set article categories data
+    const articleCategoriesData = await $sanity
+      .fetch(articleCategoriesQuery)
+      .catch((err) => console.error(err)) // eslint-disable-line no-console
+    commit('articles/setCategories', articleCategoriesData)
   },
 }

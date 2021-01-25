@@ -1,9 +1,5 @@
 <template>
-  <div
-    v-if="!this.$fetchState.pending"
-    class="container container--small"
-    data-s2r="group"
-  >
+  <div class="container container--small" data-s2r="group">
     <header>
       <h1
         class="text-30 text-grey-light-c sm:text-36"
@@ -33,28 +29,7 @@
 <script>
 import dynamicHeadTags from '~/utilities/dynamicHeadTags.js'
 
-const query = `
-  *[_type == "article" && !(_id in path('drafts.**'))]{
-    categories[]->{
-      title,
-      'slug': slug.current
-    },
-    excerpt,
-    publishedAt,
-    'slug': slug.current,
-    title
-  } | order(publishedAt desc)
-`
-
 export default {
-  data() {
-    return {
-      articles: [],
-    }
-  },
-  async fetch() {
-    this.articles = await this.$sanity.fetch(query)
-  },
   head() {
     const generalData = {
       title: 'Articles',
@@ -64,18 +39,13 @@ export default {
       ...dynamicHeadTags(this, generalData),
     }
   },
-  watch: {
+  computed: {
     articles() {
-      // Waits until the markup is rendered before reinitializing s2r
-      this.$nextTick(() => {
-        const interval = setInterval(() => {
-          if (!this.$fetchState.pending) {
-            window.s2r.reInit()
-            clearInterval(interval)
-          }
-        }, 10)
-      })
+      return this.$store.state.articles.articles
     },
+  },
+  mounted() {
+    window.s2r.reInit()
   },
 }
 </script>
