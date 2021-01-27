@@ -24,7 +24,7 @@ export const articlesQuery = `
     publishedAt,
     'slug': slug.current,
     title
-  }
+  } | order(publishedAt desc)
 `
 export const articleCategoriesQuery = `
   *[_type == "articleCategory" && !(_id in path('drafts.**'))] {

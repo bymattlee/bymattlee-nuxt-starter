@@ -53,6 +53,17 @@ export const actions = {
     const articlesData = await $sanity
       .fetch(articlesQuery)
       .catch((err) => console.error(err)) // eslint-disable-line no-console
+
+    // Include previous and next article objects for pagination
+    for (let i = 0; i < articlesData.length; i++) {
+      const previousArticle = articlesData[i - 1]
+      const nextArticle = articlesData[i + 1]
+
+      articlesData[i].previousArticleSlug = previousArticle
+        ? previousArticle.slug
+        : null
+      articlesData[i].nextArticleSlug = nextArticle ? nextArticle.slug : null
+    }
     commit('articles/setArticles', articlesData)
 
     // Set article categories data
