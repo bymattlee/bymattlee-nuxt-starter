@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 /* ***** ----------------------------------------------- ***** **
 ** ***** Setup/Layout
 ** ***** ----------------------------------------------- ***** */
@@ -21,7 +23,7 @@ $breakpoints: (
 
 // Convert from px to base 16 em
 @function px-to-em($px) {
-  @return ($px / 16px) * 1em;
+  @return math.div($px, 16px) * 1em;
 }
 
 

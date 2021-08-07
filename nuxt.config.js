@@ -53,7 +53,7 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/stylelint-module',
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/sanity',
+    '@nuxtjs/sanity/module',
     '@nuxtjs/google-gtag',
     '@aceforth/nuxt-optimized-images',
   ],
@@ -83,6 +83,12 @@ export default {
         removeScriptTypeAttributes: true,
         removeStyleLinkTypeAttributes: true,
       },
+    },
+    babel: {
+      plugins: [
+        ['@babel/plugin-proposal-private-methods', { loose: true }],
+        ['@babel/plugin-proposal-private-property-in-object', { loose: true }],
+      ],
     },
   },
 

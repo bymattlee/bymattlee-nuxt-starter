@@ -41,5 +41,6 @@ module.exports = {
     'no-descending-specificity': null,
     'function-comma-newline-after': null,
     'value-keyword-case': null,
+    'no-invalid-position-at-import-rule': null
   }
 }

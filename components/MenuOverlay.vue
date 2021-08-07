@@ -1,6 +1,17 @@
 <template>
   <section
-    class="bg-black fixed inset-0 w-full h-full z-menu-overlay flex flex-col pt-80 pb-40 sm:hidden"
+    class="
+      bg-black
+      fixed
+      inset-0
+      w-full
+      h-full
+      z-menu-overlay
+      flex flex-col
+      pt-80
+      pb-40
+      sm:hidden
+    "
   >
     <div class="flex-1 flex justify-center items-center">
       <nav class="menu-overlay__nav">
