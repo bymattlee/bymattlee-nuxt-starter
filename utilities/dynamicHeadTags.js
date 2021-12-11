@@ -25,9 +25,12 @@ const dynamicHeadTags = (vm, generalData, specificData) => {
     generalData.description ||
     vm.$store.state.seo.siteDescription
   const siteShareImage =
-    vm.$urlFor(specificData.shareImage).width(1200).url() ||
-    vm.$urlFor(generalData.shareImage).width(1200).url() ||
-    vm.$urlFor(vm.$store.state.seo.siteShareImage).width(1200).url()
+    (specificData.shareImage &&
+      vm.$urlFor(specificData.shareImage).width(1200).url()) ||
+    (generalData.shareImage &&
+      vm.$urlFor(generalData.shareImage).width(1200).url()) ||
+    (vm.$store.state.seo.siteShareImage &&
+      vm.$urlFor(vm.$store.state.seo.siteShareImage).width(1200).url())
   const favicon32 = vm.$urlFor(vm.$store.state.favicons.favicon).width(32).url()
   const favicon16 = vm.$urlFor(vm.$store.state.favicons.favicon).width(16).url()
   const appleTouchIcon = vm

@@ -114,21 +114,17 @@ module.exports = {
      'in-out': 'cubic-bezier(0.645, 0.045, 0.355, 1)',
     }
   },
-  variants: {},
   corePlugins: {
     container: false,
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),
   ],
-  purge: {
-    enabled: process.env.NODE_ENV === 'production',
-    content: [
-      'components/**/*.vue',
-      'layouts/**/*.vue',
-      'pages/**/*.vue',
-      'plugins/**/*.js',
-      'nuxt.config.js',
-    ],
-  },
+  content: [
+    'components/**/*.vue',
+    'layouts/**/*.vue',
+    'pages/**/*.vue',
+    'plugins/**/*.js',
+    'nuxt.config.js',
+  ],
 }

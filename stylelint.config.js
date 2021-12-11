@@ -1,7 +1,10 @@
 module.exports = {
   extends: [
     'stylelint-config-standard',
-    'stylelint-config-prettier'
+    'stylelint-config-prettier',
+    'stylelint-config-recommended-vue',
+    'stylelint-config-standard-scss',
+    'stylelint-config-recommended-vue/scss'
   ],
   plugins: [
     'stylelint-order'
@@ -41,6 +44,12 @@ module.exports = {
     'no-descending-specificity': null,
     'function-comma-newline-after': null,
     'value-keyword-case': null,
-    'no-invalid-position-at-import-rule': null
+    'no-invalid-position-at-import-rule': null,
+    'selector-id-pattern': null,
+    'property-no-vendor-prefix': null,
+    'selector-no-vendor-prefix': null,
+    'scss/at-rule-no-unknown': null,
+    'scss/no-global-function-names': null,
+    'selector-class-pattern': null
   }
 }
