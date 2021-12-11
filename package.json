@@ -1,9 +1,9 @@
 {
   "name": "bymattlee-nuxt-starter",
+  "description": "ByMattLee Nuxt Starter",
   "version": "1.0.0",
   "private": true,
   "engines": {
-    "npm": ">=6.14.13",
     "node": ">=14.17.0"
   },
   "scripts": {
