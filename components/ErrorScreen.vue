@@ -1,16 +1,17 @@
 <template>
-  <div class="container container--small" data-s2r="group">
+  <div class="container container--small">
     <h1
+      v-motion-fade-up
+      :delay="100"
       class="text-30 text-grey-light-c sm:text-36"
-      data-s2r-el="block-fade-up"
     >
       Page Not Found
     </h1>
-    <div data-s2r-el="stagger-fade-up" data-s2r-delay="0.2">
-      <p class="mt-20 sm:mt-25">
+    <div>
+      <p v-motion-fade-up :delay="300" class="mt-20 sm:mt-25">
         Sorry, but the page you were trying to view does not exist.
       </p>
-      <p class="mt-20 sm:mt-25">
+      <p v-motion-fade-up :delay="400" class="mt-20 sm:mt-25">
         <LinkButton type="internal" path="/">&raquo; Go Back Home</LinkButton>
       </p>
     </div>
@@ -36,9 +37,6 @@ export default {
     return {
       ...dynamicHeadTags(this, generalData, this.page.pageMetaData || {}),
     }
-  },
-  mounted() {
-    window.s2r.reInit()
   },
 }
 </script>

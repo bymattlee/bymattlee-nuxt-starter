@@ -40,8 +40,5 @@ export default {
       return page[0] || null
     },
   },
-  mounted() {
-    window.s2r.reInit()
-  },
 }
 </script>

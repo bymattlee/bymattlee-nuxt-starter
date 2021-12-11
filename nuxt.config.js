@@ -48,7 +48,6 @@ export default {
     '~/plugins/filters.js',
     '~/plugins/sanityImageBuilder.js',
     '~/plugins/lazysizes.client.js',
-    '~/plugins/s2r.client.js',
   ],
 
   buildModules: [
@@ -58,6 +57,8 @@ export default {
     '@nuxtjs/sanity/module',
     '@nuxtjs/google-gtag',
     '@aceforth/nuxt-optimized-images',
+    '@nuxtjs/composition-api/module',
+    'nuxt-use-motion',
   ],
 
   modules: [
@@ -126,6 +127,25 @@ export default {
     projectId: 'afxi85wm',
     dataset: 'nuxt',
     useCdn: false,
+  },
+
+  motion: {
+    directives: {
+      'fade-up': {
+        initial: {
+          opacity: 0,
+          y: 40,
+        },
+        enter: {
+          opacity: 1,
+          y: 0,
+          transition: {
+            duration: 600,
+            ease: 'easeOut',
+          },
+        },
+      }
+    }
   },
 
   generate: {

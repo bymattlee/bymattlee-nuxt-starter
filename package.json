@@ -16,6 +16,7 @@
     "lint": "yarn lint:js && yarn lint:style"
   },
   "dependencies": {
+    "@nuxtjs/composition-api": "^0.31.0",
     "@nuxtjs/google-gtag": "^1.0.4",
     "@nuxtjs/redirect-module": "^0.3.1",
     "@nuxtjs/sanity": "^0.10.0",
@@ -26,7 +27,8 @@
     "gsap": "^3.8.0",
     "lazysizes": "^5.3.2",
     "luxon": "^2.2.0",
-    "nuxt": "^2.15.8"
+    "nuxt": "^2.15.8",
+    "nuxt-use-motion": "2.0.0-beta.5"
   },
   "devDependencies": {
     "@aceforth/nuxt-optimized-images": "^1.4.0",

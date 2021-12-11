@@ -1,23 +1,22 @@
 <template>
   <div v-if="category">
-    <div class="container container--small" data-s2r="group">
+    <div class="container container--small">
       <header>
         <h1
+          v-motion-fade-up
+          :delay="100"
           class="text-30 text-grey-light-c sm:text-36"
-          data-s2r-el="block-fade-up"
         >
           '{{ category.title }}' Articles
         </h1>
       </header>
-      <div
-        class="mt-20 sm:mt-40"
-        data-s2r-el="stagger-fade-up"
-        data-s2r-delay="0.2"
-      >
+      <div class="mt-20 sm:mt-40">
         <template v-if="category.articles.length">
           <ArticlePreview
             v-for="(article, index) in category.articles"
             :key="article.slug"
+            v-motion-fade-up
+            :delay="300 + 100 * index"
             :article="article"
             :class="{ 'mt-30 sm:mt-50': index > 0 }"
           />
@@ -54,9 +53,6 @@ export default {
       )
       return category[0] || null
     },
-  },
-  mounted() {
-    window.s2r.reInit()
   },
 }
 </script>

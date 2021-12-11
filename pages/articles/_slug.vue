@@ -1,10 +1,6 @@
 <template>
   <div v-if="article">
-    <div
-      class="container container--small"
-      data-s2r="single"
-      data-s2r-type="stagger-fade-up"
-    >
+    <div class="container container--small">
       <ArticleDetail :article="article" />
     </div>
   </div>
@@ -34,9 +30,6 @@ export default {
       })
       return article[0] || null
     },
-  },
-  mounted() {
-    window.s2r.reInit()
   },
 }
 </script>
