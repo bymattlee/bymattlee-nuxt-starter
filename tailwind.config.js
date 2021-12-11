@@ -61,6 +61,11 @@ module.exports = {
       normal: '1.4',
       loose: '1.8',
     },
+    letterSpacing: {
+      tight: '-0.1rem',
+      normal: '0',
+      wide: '0.1rem',
+    },
     spacing: {
       0: '0',
       5: '0.5rem',
@@ -84,6 +89,20 @@ module.exports = {
       140: '14rem',
       150: '15rem',
       200: '20rem',
+    },
+    borderWidth: {
+      DEFAULT: '0.1rem',
+      0: '0',
+      1: '0.1rem',
+      2: '0.2rem',
+      4: '0.3rem',
+      6: '0.4rem',
+      8: '0.8rem',
+    },
+    borderRadius: {
+      DEFAULT: '1rem',
+      none: '0',
+      full: '9999rem',
     },
     zIndex: {
       auto: 'auto',
@@ -121,10 +140,10 @@ module.exports = {
     require('@tailwindcss/aspect-ratio'),
   ],
   content: [
-    'components/**/*.vue',
-    'layouts/**/*.vue',
-    'pages/**/*.vue',
-    'plugins/**/*.js',
-    'nuxt.config.js',
+    './components/**/*.vue',
+    './layouts/**/*.vue',
+    './pages/**/*.vue',
+    './plugins/**/*.js',
+    './nuxt.config.js',
   ],
 }
