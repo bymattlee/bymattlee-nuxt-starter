@@ -1,14 +1,14 @@
 <template>
   <div>
     <article>
-      <div
+      <figure
         v-if="article.featuredImage"
         v-motion-fade-up
         :delay="delayFeaturedImage"
         class="mb-20 sm:mb-40"
       >
         <ImageItem :asset-id="article.featuredImage.asset._ref" />
-      </div>
+      </figure>
       <header>
         <h1 v-motion-fade-up :delay="delayTitle" class="text-24 sm:text-28">
           {{ article.title }}
