@@ -4,7 +4,7 @@
       v-if="pageSection.heading"
       v-motion-fade-up
       :delay="100"
-      class="text-30 text-grey-light-c sm:text-36"
+      class="text-30 text-grey-light-c opacity-0 sm:text-36"
     >
       Latest Articles
     </h1>
@@ -15,10 +15,14 @@
         v-motion-fade-up
         :delay="300 + 100 * index"
         :article="article"
-        :class="{ 'mt-30 sm:mt-50': index > 0 }"
+        :class="['opacity-0', { 'mt-30 sm:mt-50': index > 0 }]"
       />
     </div>
-    <p v-motion-fade-up :delay="300 + 100 * articles.length" class="mt-40">
+    <p
+      v-motion-fade-up
+      :delay="300 + 100 * articles.length"
+      class="mt-40 opacity-0"
+    >
       <LinkButton type="internal" path="/articles/">
         &raquo; View All Articles
       </LinkButton>

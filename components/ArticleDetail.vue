@@ -5,26 +5,30 @@
         v-if="article.featuredImage"
         v-motion-fade-up
         :delay="delayFeaturedImage"
-        class="mb-20 sm:mb-40"
+        class="mb-20 opacity-0 sm:mb-40"
       >
         <ImageItem :asset-id="article.featuredImage.asset._ref" />
       </figure>
       <header>
-        <h1 v-motion-fade-up :delay="delayTitle" class="text-24 sm:text-28">
+        <h1
+          v-motion-fade-up
+          :delay="delayTitle"
+          class="text-24 opacity-0 sm:text-28"
+        >
           {{ article.title }}
         </h1>
         <ArticleDateAndCategories
           v-motion-fade-up
           :delay="delayDateAndCategories"
           :article="article"
-          class="mt-5"
+          class="mt-5 opacity-0"
         />
         <RichText
           v-if="article.mainContent.length"
           v-motion-fade-up
           :delay="delayText"
           :content="article.mainContent"
-          class="mt-30"
+          class="mt-30 opacity-0"
         />
       </header>
     </article>
@@ -33,6 +37,7 @@
       v-motion-fade-up
       :delay="delayPagination"
       :article="article"
+      class="opacity-0"
     />
   </div>
 </template>

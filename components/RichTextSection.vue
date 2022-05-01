@@ -5,7 +5,7 @@
         v-if="pageSection.heading"
         v-motion-fade-up
         :delay="100"
-        class="text-30 text-grey-light-c sm:text-36"
+        class="text-30 text-grey-light-c opacity-0 sm:text-36"
       >
         {{ pageSection.heading }}
       </h1>
@@ -14,7 +14,7 @@
         v-motion-fade-up
         :delay="300"
         :content="pageSection.mainContent"
-        class="mt-10 sm:mt-20"
+        class="mt-10 opacity-0 sm:mt-20"
       />
     </div>
   </section>
