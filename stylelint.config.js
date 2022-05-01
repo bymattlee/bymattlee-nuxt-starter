@@ -50,6 +50,7 @@ module.exports = {
     'selector-no-vendor-prefix': null,
     'scss/at-rule-no-unknown': null,
     'scss/no-global-function-names': null,
-    'selector-class-pattern': null
+    'selector-class-pattern': null,
+    'function-no-unknown': null
   }
 }
