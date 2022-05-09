@@ -42,3 +42,28 @@ $ yarn start
 * Data is coming from the Sanity Cloud API. This pairs perfectly with the [ByMattLee Sanity Studio Starter](https://github.com/bymattlee/bymattlee-sanity-studio-starter)
 * Features Tailwind CSS with PurgeCSS for production builds
 * Includes RSS feed, robots.txt, sitemap.xml generation
+
+## Tailwind CSS Notes
+* All Tailwind settings can be found in `./tailwind.config.js`
+* Most styles should be written as utility classes in the template markup but custom SCSS can be used for unique properties and/or magic numbers
+* Utilize the [`@apply`](https://tailwindcss.com/docs/functions-and-directives#apply) directive when writing custom SCSS for efficiency:
+```scss
+svg {
+    @apply inline-block fill-current;
+}
+```
+* Tailwind settings can be accessed with the [`theme()`](https://tailwindcss.com/docs/functions-and-directives#theme) function:
+```scss
+.button {
+    animation-duration: theme('transitionDuration.normal');
+}
+```
+* Media queries can be used with the shorthand `screen()` function:
+```scss
+.button {
+    margin-right: 2.8rem;
+    @screen sm {
+        margin-right: 4.2rem;
+    }
+}
+```
