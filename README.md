@@ -4,7 +4,7 @@
 A starter boilerplate powered by [Vue](https://vuejs.org/), [Nuxt](https://nuxtjs.org/), [Sanity](https://www.sanity.io/) and [Tailwind CSS](https://tailwindcss.com/).
 
 [VIEW DEMO](https://bymattlee-nuxt-starter.netlify.app/)
-
+___
 ## Installation
 ##### 1. Install Node >=14.17.0: <https://nodejs.org/>
 ##### 2. Install Yarn
@@ -15,10 +15,10 @@ $ npm i -g yarn
 ```
 $ yarn
 ```
-
+___
 ## Configuration
 In `nuxt.config.js`, update Sanity options and environment URLs for project compilation.
-
+___
 ## Use
 ##### Serve With Hot Reload
 ```
@@ -36,13 +36,13 @@ $ yarn generate
 ```
 $ yarn start
 ```
-
+___
 ## General Features
 * Utilizes Nuxt's 'static' mode to generate HTML files for every page
 * Data is coming from the Sanity Cloud API. This pairs perfectly with the [ByMattLee Sanity Studio Starter](https://github.com/bymattlee/bymattlee-sanity-studio-starter)
 * Features Tailwind CSS with PurgeCSS for production builds
 * Includes RSS feed, robots.txt, sitemap.xml generation
-
+___
 ## Tailwind CSS Notes
 * All Tailwind settings can be found in `./tailwind.config.js`
 * Most styles should be written as utility classes in the template markup but custom SCSS can be used for unique properties and/or magic numbers
@@ -67,3 +67,9 @@ svg {
     }
 }
 ```
+___
+## Contact
+* Matt Lee - `@bymattlee` on most platforms
+* Visit my website at [bymattlee.com](https://bymattlee.com)
+
+[![Twitter Follow](https://img.shields.io/twitter/follow/bymattlee?style=social)](https://twitter.com/bymattlee)
