@@ -1,0 +1,49 @@
+/* ***** ----------------------------------------------- ***** **
+** ***** Utilities/Type
+** ***** ----------------------------------------------- ***** */
+
+@layer utilities {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .u-h1,
+  .u-h2,
+  .u-h3,
+  .u-h4,
+  .u-h5,
+  .u-h6 {
+    @apply font-heading font-bold;
+    text-rendering: optimizeLegibility;
+  }
+
+  .u-h1 {
+    @apply text-36 sm:text-48;
+  }
+
+  .u-h2 {
+    @apply u-text-30 sm:text-36;
+  }
+
+  .u-h3 {
+    @apply text-24 sm:text-28;
+  }
+
+  .u-h4 {
+    @apply text-18 sm:text-24;
+  }
+
+  .u-h5 {
+    @apply text-14 sm:text-18;
+  }
+
+  .u-h6 {
+    @apply text-12 sm:text-14;
+  }
+
+  .text-body {
+    @apply font-body leading-normal text-14 sm:text-16;
+  }
+}

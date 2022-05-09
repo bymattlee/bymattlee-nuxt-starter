@@ -1,6 +1,6 @@
 <template>
   <button
-    class="text-16 uppercase relative sm:hidden"
+    class="font-heading text-16 font-bold uppercase relative sm:hidden"
     @click="toggleMenuOverlay"
   >
     <span v-if="!menuOverlayIsOpen">Menu</span>

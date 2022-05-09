@@ -21,44 +21,40 @@
 // Placeholder text
 @mixin placeholder($color) {
   &::-webkit-input-placeholder {
+    @apply opacity-100 u-transition-opacity u-duration-slow;
     color: $color;
-    opacity: 1;
-    transition: opacity $duration-slow;
   }
 
   &::-moz-placeholder {
+    @apply opacity-100 u-transition-opacity u-duration-slow;
     color: $color;
-    opacity: 1;
-    transition: opacity $duration-slow;
   }
 
   &:-ms-input-placeholder {
+    @apply opacity-100 u-transition-opacity u-duration-slow;
     color: $color;
-    opacity: 1;
-    transition: opacity $duration-slow;
   }
 
   &:-moz-placeholder {
+    @apply opacity-100 u-transition-opacity u-duration-slow;
     color: $color;
-    opacity: 1;
-    transition: opacity $duration-slow;
   }
 
   &:focus {
     &::-webkit-input-placeholder {
-      opacity: 0.5;
+      @apply opacity-50;
     }
 
     &::-moz-placeholder {
-      opacity: 0.5;
+      @apply opacity-50;
     }
 
     &:-ms-input-placeholder {
-      opacity: 0.5;
+      @apply opacity-50;
     }
 
     &:-moz-placeholder {
-      opacity: 0.5;
+      @apply opacity-50;
     }
   }
 }
@@ -75,11 +71,18 @@
   }
 }
 
+// Text Underline
+@mixin text-underline() {
+  background: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 0.1rem;
+}
+
 
 /* ***** Includes
 ** ***** ----------------------------------------------- ***** */
 
-// Add font includes to top of Tailwind stylesheet
 @layer base {
   // Montserrat
   @include font-face('Montserrat', 'montserrat-light-webfont', 200);

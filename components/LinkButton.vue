@@ -36,27 +36,9 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~/assets/scss/1-setup/layout';
-
 .link-button {
-  @apply bg-grey-light-c text-black leading-loose;
-  display: inline-block;
-  padding: 0.75rem 2rem;
-  text-decoration: none;
-  @include mq('sm') {
-    padding: 1rem 2.5rem;
-  }
-
-  &:hover {
-    @media (hover: hover) {
-      @apply bg-grey-dark-4 text-grey-light-c;
-    }
-  }
-
-  &:active {
-    @media (hover: hover) {
-      @apply bg-grey-light-a text-black;
-    }
-  }
+  @apply inline-block bg-grey-light-c text-black leading-loose px-20 py-8
+    transition-colors duration-slow hover:bg-grey-dark-4 hover:text-grey-light-c
+    active:bg-grey-light-a active:text-black sm:px-25 sm:py-10;
 }
 </style>

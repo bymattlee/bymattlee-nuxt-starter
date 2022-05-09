@@ -1,6 +1,7 @@
 const { pxToEm, fontFallbacks } = require('./tailwindUtilities.js')
 
 module.exports = {
+  mode: 'jit',
   theme: {
     screens: {
       xs: pxToEm(480),
@@ -9,9 +10,6 @@ module.exports = {
       lg: pxToEm(1280),
       xl: pxToEm(1440),
       xxl: pxToEm(1800),
-    },
-    container: {
-      center: true,
     },
     colors: {
       transparent: 'transparent',
@@ -62,13 +60,18 @@ module.exports = {
       loose: '1.8',
     },
     letterSpacing: {
-      tight: '-0.1rem',
+      tightest: '-0.1rem',
+      tighter: '-0.05rem',
+      tight: '-0.025rem',
       normal: '0',
-      wide: '0.1rem',
+      wide: '0.025rem',
+      wider: '0.05rem',
+      widest: '0.1rem',
     },
     spacing: {
       0: '0',
       5: '0.5rem',
+      8: '0.8rem',
       10: '1rem',
       15: '1.5rem',
       20: '2rem',
@@ -78,17 +81,31 @@ module.exports = {
       40: '4rem',
       45: '4.5rem',
       50: '5rem',
+      55: '5.5rem',
       60: '6rem',
+      65: '6.5rem',
       70: '7rem',
+      75: '7.5rem',
       80: '8rem',
+      85: '8.5rem',
       90: '9rem',
+      95: '9.5rem',
       100: '10rem',
       110: '11rem',
       120: '12rem',
       130: '13rem',
       140: '14rem',
       150: '15rem',
+      160: '16rem',
+      170: '17rem',
+      180: '18rem',
+      190: '19rem',
       200: '20rem',
+      210: '21rem',
+      220: '22rem',
+      230: '23rem',
+      240: '24rem',
+      250: '25rem',
     },
     borderWidth: {
       DEFAULT: '0.1rem',
@@ -135,6 +152,7 @@ module.exports = {
   },
   corePlugins: {
     container: false,
+    aspectRatio: false,
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),

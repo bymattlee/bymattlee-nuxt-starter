@@ -14,7 +14,7 @@
         v-motion-fade-up
         :delay="300"
         :content="pageSection.mainContent"
-        class="mt-10 opacity-0 sm:mt-20"
+        class="mt-20 opacity-0 sm:mt-40"
       />
     </div>
   </section>

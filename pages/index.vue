@@ -3,7 +3,7 @@
     <div
       v-for="(pageSection, index) in page.pageSections"
       :key="`${index}-${pageSection._type}`"
-      :class="{ 'mt-40 sm:mt-60': index >= 1 }"
+      :class="{ 'mt-60 sm:mt-100': index >= 1 }"
     >
       <RichTextSection
         v-if="pageSection._type === 'richTextSection'"

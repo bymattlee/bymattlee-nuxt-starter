@@ -13,18 +13,24 @@
 ** ***** ----------------------------------------------- ***** */
 
 @import '1-setup/type';
-@import '1-setup/layout';
-@import '1-setup/transitions';
 @import '1-setup/base';
+@import '1-setup/transitions';
+
+
+/* ***** Utilities
+** ***** ----------------------------------------------- ***** */
+
+@import '2-utilities/layout';
+@import '2-utilities/type';
 
 
 /* ***** Vendors
 ** ***** ----------------------------------------------- ***** */
 
-@import '2-vendors/lazysizes';
+@import '3-vendors/lazysizes';
 
 
 /* ***** Misc
 ** ***** ----------------------------------------------- ***** */
 
-@import '3-misc/print';
+@import '4-misc/print';

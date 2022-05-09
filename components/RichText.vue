@@ -37,52 +37,42 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~/assets/scss/1-setup/layout';
-
 .rich-text {
+  div {
+    * {
+      &:first-child {
+        @apply mt-0;
+      }
+
+      &:last-child {
+        @apply mb-0;
+      }
+    }
+  }
+
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    margin-bottom: 1rem;
-
-    &:first-child {
-      margin-top: 0;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
+    @apply mb-10;
   }
 
   h1 {
-    @apply text-36;
-    @include mq('sm') {
-      @apply text-48;
-    }
+    @apply text-36 sm:text-48;
   }
 
   h2 {
-    @apply text-30;
-    @include mq('sm') {
-      @apply text-36;
-    }
+    @apply text-30 sm:text-36;
   }
 
   h3 {
-    @apply text-24;
-    @include mq('sm') {
-      @apply text-28;
-    }
+    @apply text-24 sm:text-28;
   }
 
   h4 {
-    @apply text-18;
-    @include mq('sm') {
-      @apply text-24;
-    }
+    @apply text-18 sm:text-24;
   }
 
   * + h1,
@@ -91,81 +81,41 @@ export default {
   * + h4,
   * + h5,
   * + h6 {
-    margin-top: 3rem;
-    @include mq('sm') {
-      margin-top: 3.5rem;
-    }
+    @apply mt-30 sm:mt-35;
   }
 
   a {
-    text-decoration: underline;
-
-    &:hover {
-      @media (hover: hover) {
-        text-decoration: none;
-      }
-    }
+    @apply underline;
   }
 
   p {
-    @apply leading-loose;
-    margin: 2rem 0;
-    @include mq('sm') {
-      margin: 2.5rem 0;
-    }
-
-    &:first-child {
-      margin-top: 0;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
+    @apply leading-loose my-20 sm:my-30;
   }
 
   ul,
   ol {
-    @apply leading-loose;
-    margin: 2rem 0 2rem 3rem;
-    @include mq('sm') {
-      margin: 2.5rem 0 2.5rem 3.5rem;
-    }
-
-    li {
-      margin: 0;
-    }
+    @apply leading-loose mt-20 mr-0 mb-20 ml-30 sm:mt-25 sm:mb-25 sm:ml-35;
 
     ul,
     ol {
-      margin: 0.5rem 0 0.5rem 3.5rem;
+      @apply mt-5 mr-0 mb-5 ml-35;
     }
   }
 
   ul {
-    list-style-type: disc;
+    @apply list-disc;
   }
 
   ol {
-    list-style-type: decimal;
+    @apply list-decimal;
   }
 
-  .embed {
-    margin: 3rem 0;
-    @include mq('sm') {
-      margin: 4rem 0;
-    }
-
-    &:first-child {
-      margin-top: 0;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
+  blockquote {
+    @apply border-l-2 my-30 mx-20 pl-30;
   }
 
   .link-button {
-    text-decoration: none;
+    @apply no-underline;
   }
 }
 </style>

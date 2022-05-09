@@ -1,0 +1,14 @@
+/* ***** ----------------------------------------------- ***** **
+** ***** Utilities/Layout
+** ***** ----------------------------------------------- ***** */
+
+@layer utilities {
+  .container {
+    @apply w-full mx-auto px-30 relative sm:px-50;
+    max-width: 128rem;
+
+    &--small {
+      max-width: 78rem;
+    }
+  }
+}

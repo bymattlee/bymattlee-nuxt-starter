@@ -1,5 +1,5 @@
 <template>
-  <div class="embed aspect-w-16 aspect-h-9">
+  <div class="aspect-w-16 aspect-h-9 my-30 sm:my-40">
     <iframe
       :data-src="`https://www.youtube.com/embed/${youtubeId}`"
       class="lazyload"

@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-grey-dark-1 py-40 py-60 text-center" role="contentinfo">
+  <footer class="bg-grey-dark-1 py-40 text-center sm:py-60" role="contentinfo">
     <div class="container">
       <NuxtLink to="/">
         <IconByMattLee class="w-40" />

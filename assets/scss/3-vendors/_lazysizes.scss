@@ -1,13 +1,12 @@
 /* ***** ----------------------------------------------- ***** **
-** ***** Vendors/Lazysizes
+** ***** Vendors/Lazysizes Overrides
 ** ***** ----------------------------------------------- ***** */
 
 .lazyload,
 .lazyloading {
-  opacity: 0;
+  @apply opacity-0;
 }
 
 .lazyloaded {
-  opacity: 1;
-  transition: opacity $duration-normal;
+  @apply opacity-100 transition-opacity duration-slow;
 }
