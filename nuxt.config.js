@@ -172,4 +172,6 @@ export default {
   'google-gtag': {
     id: 'G-8K28D0N1CK',
   },
+
+  devServerHandlers: [],
 }
