@@ -12,73 +12,10 @@
     font-family: $name;
     font-style: $style;
     font-weight: $weight;
-    src:
-      url('../fonts/#{$file}.woff2') format('woff2'),
+    src: url('../fonts/#{$file}.woff2') format('woff2'),
       url('../fonts/#{$file}.woff') format('woff');
   }
 }
-
-// Placeholder text
-@mixin placeholder($color) {
-  &::-webkit-input-placeholder {
-    @apply opacity-100 u-transition-opacity u-duration-slow;
-    color: $color;
-  }
-
-  &::-moz-placeholder {
-    @apply opacity-100 u-transition-opacity u-duration-slow;
-    color: $color;
-  }
-
-  &:-ms-input-placeholder {
-    @apply opacity-100 u-transition-opacity u-duration-slow;
-    color: $color;
-  }
-
-  &:-moz-placeholder {
-    @apply opacity-100 u-transition-opacity u-duration-slow;
-    color: $color;
-  }
-
-  &:focus {
-    &::-webkit-input-placeholder {
-      @apply opacity-50;
-    }
-
-    &::-moz-placeholder {
-      @apply opacity-50;
-    }
-
-    &:-ms-input-placeholder {
-      @apply opacity-50;
-    }
-
-    &:-moz-placeholder {
-      @apply opacity-50;
-    }
-  }
-}
-
-// Input autofill
-@mixin autofill($border-color, $font-color, $background-color) {
-  &:-webkit-autofill,
-  &:-webkit-autofill:hover,
-  &:-webkit-autofill:focus {
-    border: 1px solid $border-color;
-    -webkit-box-shadow: 0 0 0 1000px $background-color inset;
-    -webkit-text-fill-color: $font-color;
-    transition: background-color 5000s ease-in-out 0s;
-  }
-}
-
-// Text Underline
-@mixin text-underline() {
-  background: linear-gradient(currentColor, currentColor);
-  background-position: 0 100%;
-  background-repeat: no-repeat;
-  background-size: 100% 0.1rem;
-}
-
 
 /* ***** Includes
 ** ***** ----------------------------------------------- ***** */

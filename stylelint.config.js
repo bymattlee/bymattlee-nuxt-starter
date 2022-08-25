@@ -4,28 +4,28 @@ module.exports = {
     'stylelint-config-prettier',
     'stylelint-config-recommended-vue',
     'stylelint-config-standard-scss',
-    'stylelint-config-recommended-vue/scss'
+    'stylelint-config-recommended-vue/scss',
   ],
-  plugins: [
-    'stylelint-order'
-  ],
+  plugins: ['stylelint-order'],
   rules: {
-    'indentation': 2,
+    indentation: 2,
     'max-empty-lines': 2,
     'block-no-empty': null,
     'selector-type-no-unknown': null,
     'selector-pseudo-element-no-unknown': null,
     'rule-empty-line-before': [
-      'always-multi-line', {
-        'except': ['first-nested'],
-        'ignore': ['after-comment', 'inside-block']
-      }
+      'always-multi-line',
+      {
+        except: ['first-nested'],
+        ignore: ['after-comment', 'inside-block'],
+      },
     ],
     'block-closing-brace-empty-line-before': null,
     'block-closing-brace-newline-after': [
-      'always', {
-        ignoreAtRules: ['if', 'else']
-      }
+      'always',
+      {
+        ignoreAtRules: ['if', 'else'],
+      },
     ],
     'at-rule-empty-line-before': null,
     'font-family-name-quotes': 'always-where-recommended',
@@ -33,9 +33,10 @@ module.exports = {
     'selector-attribute-quotes': 'always',
     'string-quotes': 'single',
     'color-named': [
-      'never', {
-        ignore: ['inside-function']
-      }
+      'never',
+      {
+        ignore: ['inside-function'],
+      },
     ],
     'font-weight-notation': 'numeric',
     'order/properties-alphabetical-order': true,
@@ -51,6 +52,7 @@ module.exports = {
     'scss/at-rule-no-unknown': null,
     'scss/no-global-function-names': null,
     'selector-class-pattern': null,
-    'function-no-unknown': null
-  }
+    'function-no-unknown': null,
+    'declaration-colon-newline-after': null,
+  },
 }
