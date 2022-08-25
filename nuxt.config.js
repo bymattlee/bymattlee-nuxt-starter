@@ -144,8 +144,8 @@ export default {
             ease: 'easeOut',
           },
         },
-      }
-    }
+      },
+    },
   },
 
   generate: {
@@ -154,7 +154,7 @@ export default {
 
   robots: {
     UserAgent: '*',
-    Disallow: '/',
+    Disallow: process.env.ENV === 'produdcion' ? '' : '/',
     Sitemap: '/sitemap.xml',
   },
 
