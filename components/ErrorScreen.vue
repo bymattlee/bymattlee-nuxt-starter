@@ -17,26 +17,3 @@
     </div>
   </div>
 </template>
-
-<script>
-import dynamicHeadTags from '~/utilities/dynamicHeadTags.js'
-
-export default {
-  data() {
-    return {
-      page: {
-        title: 'Page Not Found',
-      },
-    }
-  },
-  head() {
-    const generalData = {
-      title: this.page.title,
-    }
-
-    return {
-      ...dynamicHeadTags(this, generalData, this.page.pageMetaData || {}),
-    }
-  },
-}
-</script>
