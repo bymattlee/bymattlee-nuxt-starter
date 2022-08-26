@@ -39,6 +39,15 @@ a {
     transition-colors duration-slow;
 }
 
+button {
+  @apply text-body;
+}
+
 svg {
   @apply inline-block fill-current;
+}
+
+input,
+textarea {
+  @apply bg-transparent text-body outline-0;
 }
