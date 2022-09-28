@@ -5,22 +5,22 @@
 // Placeholder text
 @mixin placeholder($color) {
   &::-webkit-input-placeholder {
-    @apply opacity-100 u-transition-opacity u-duration-slow;
+    @apply opacity-100 transition-opacity duration-slow;
     color: $color;
   }
 
   &::-moz-placeholder {
-    @apply opacity-100 u-transition-opacity u-duration-slow;
+    @apply opacity-100 transition-opacity duration-slow;
     color: $color;
   }
 
   &:-ms-input-placeholder {
-    @apply opacity-100 u-transition-opacity u-duration-slow;
+    @apply opacity-100 transition-opacity duration-slow;
     color: $color;
   }
 
   &:-moz-placeholder {
-    @apply opacity-100 u-transition-opacity u-duration-slow;
+    @apply opacity-100 transition-opacity duration-slow;
     color: $color;
   }
 

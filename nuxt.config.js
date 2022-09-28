@@ -154,7 +154,7 @@ export default {
 
   robots: {
     UserAgent: '*',
-    Disallow: process.env.ENV === 'produdcion' ? '' : '/',
+    Disallow: process.env.ENV === 'production' ? '' : '/',
     Sitemap: '/sitemap.xml',
   },
 
@@ -174,4 +174,8 @@ export default {
   },
 
   devServerHandlers: [],
+
+  server: {
+    host: '0',
+  },
 }

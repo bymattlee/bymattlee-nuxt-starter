@@ -16,9 +16,7 @@ html {
 }
 
 body {
-  @apply text-body text-grey-light-a;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
+  @apply text-body text-grey-light-a antialiased;
   -ms-text-size-adjust: 100%;
 }
 
@@ -49,5 +47,5 @@ svg {
 
 input,
 textarea {
-  @apply bg-transparent text-body outline-0;
+  @apply bg-transparent text-body outline-none;
 }
