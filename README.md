@@ -10,7 +10,7 @@ A starter boilerplate powered by [Vue](https://vuejs.org/), [Nuxt](https://nuxtj
 
 ## Installation
 
-##### 1. Install Node >=16.17.1 LTS: <https://nodejs.org/>
+##### 1. Install Node 16.17.1 LTS: <https://nodejs.org/>
 
 ##### 2. Install Yarn
 
